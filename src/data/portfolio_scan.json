@@ -1,0 +1,1482 @@
+{
+  "target": "/home/redse/coding/projek",
+  "total_directories": 1366,
+  "total_files": 16732,
+  "source_files": 7572,
+  "source_lines": 5056831,
+  "source_bytes": 219707519,
+  "languages": {
+    "HTML": {
+      "files": 4054,
+      "lines": 3561645,
+      "bytes": 162002005
+    },
+    "C": {
+      "files": 557,
+      "lines": 423578,
+      "bytes": 12988340
+    },
+    "Go": {
+      "files": 171,
+      "lines": 258762,
+      "bytes": 9402374
+    },
+    "JSON": {
+      "files": 847,
+      "lines": 239761,
+      "bytes": 9302601
+    },
+    "C/C++ Header": {
+      "files": 711,
+      "lines": 189226,
+      "bytes": 8769523
+    },
+    "Python": {
+      "files": 200,
+      "lines": 100256,
+      "bytes": 5379607
+    },
+    "C++": {
+      "files": 356,
+      "lines": 82459,
+      "bytes": 2530202
+    },
+    "CSS": {
+      "files": 18,
+      "lines": 64928,
+      "bytes": 1709683
+    },
+    "Arduino / C++": {
+      "files": 239,
+      "lines": 58935,
+      "bytes": 3786220
+    },
+    "Kotlin": {
+      "files": 79,
+      "lines": 29269,
+      "bytes": 1334222
+    },
+    "JavaScript": {
+      "files": 52,
+      "lines": 27105,
+      "bytes": 1606419
+    },
+    "Markdown": {
+      "files": 193,
+      "lines": 16483,
+      "bytes": 740545
+    },
+    "Shell": {
+      "files": 38,
+      "lines": 1105,
+      "bytes": 36030
+    },
+    "reStructuredText": {
+      "files": 3,
+      "lines": 1056,
+      "bytes": 39852
+    },
+    "CMake": {
+      "files": 14,
+      "lines": 741,
+      "bytes": 23874
+    },
+    "Dart": {
+      "files": 2,
+      "lines": 619,
+      "bytes": 23210
+    },
+    "YAML": {
+      "files": 5,
+      "lines": 244,
+      "bytes": 10182
+    },
+    "JavaScript / JSX": {
+      "files": 2,
+      "lines": 232,
+      "bytes": 8490
+    },
+    "XML": {
+      "files": 7,
+      "lines": 131,
+      "bytes": 6545
+    },
+    "Swift": {
+      "files": 6,
+      "lines": 83,
+      "bytes": 2287
+    },
+    "TOML": {
+      "files": 9,
+      "lines": 65,
+      "bytes": 1181
+    },
+    "INI": {
+      "files": 5,
+      "lines": 46,
+      "bytes": 1136
+    },
+    "Makefile": {
+      "files": 2,
+      "lines": 45,
+      "bytes": 837
+    },
+    "Java": {
+      "files": 1,
+      "lines": 39,
+      "bytes": 1544
+    },
+    "Config": {
+      "files": 1,
+      "lines": 18,
+      "bytes": 610
+    }
+  },
+  "technologies": [
+    "Android",
+    "Arduino",
+    "Axios",
+    "BLE / flutter_blue_plus",
+    "Bluetooth LE",
+    "CMake",
+    "Dart",
+    "Dart / Flutter",
+    "ESP32",
+    "Express",
+    "FastAPI",
+    "Firebase",
+    "Flutter",
+    "GPS",
+    "Geolocation",
+    "Go",
+    "Go Modules",
+    "Gorilla WebSocket",
+    "Gradle / Kotlin DSL",
+    "Gradle Wrapper",
+    "HTTPX",
+    "JavaScript / TypeScript",
+    "Kotlin",
+    "Kotlin Android",
+    "Make",
+    "NPM",
+    "Node.js / NPM",
+    "OpenRouter",
+    "Playwright",
+    "Python",
+    "Python / pip",
+    "React",
+    "Redis",
+    "Requests",
+    "SQLite",
+    "Socket.IO",
+    "Uvicorn",
+    "Vite",
+    "WebSocket",
+    "WhatsMeow"
+  ],
+  "projects": [
+    {
+      "name": "antam-bot",
+      "path": "/home/redse/coding/projek/antam-bot",
+      "files_total": 12682,
+      "source_files": 4831,
+      "source_lines": 3842516,
+      "source_bytes": 170120594,
+      "languages": {
+        "HTML": {
+          "files": 4007,
+          "lines": 3500577,
+          "bytes": 157366531
+        },
+        "Go": {
+          "files": 110,
+          "lines": 236110,
+          "bytes": 8613360
+        },
+        "CSS": {
+          "files": 13,
+          "lines": 63695,
+          "bytes": 1630915
+        },
+        "JSON": {
+          "files": 661,
+          "lines": 30128,
+          "bytes": 1743639
+        },
+        "JavaScript": {
+          "files": 20,
+          "lines": 9015,
+          "bytes": 645845
+        },
+        "Python": {
+          "files": 13,
+          "lines": 2932,
+          "bytes": 118884
+        },
+        "TOML": {
+          "files": 5,
+          "lines": 45,
+          "bytes": 865
+        },
+        "INI": {
+          "files": 2,
+          "lines": 14,
+          "bytes": 555
+        }
+      },
+      "technologies": [
+        "Go",
+        "Go Modules",
+        "JavaScript / TypeScript",
+        "Python",
+        "Redis",
+        "SQLite",
+        "WhatsMeow"
+      ],
+      "interesting_files": [
+        "go.mod",
+        "go.sum"
+      ]
+    },
+    {
+      "name": "esp32",
+      "path": "/home/redse/coding/projek/esp32",
+      "files_total": 1800,
+      "source_files": 1651,
+      "source_lines": 564961,
+      "source_bytes": 16777499,
+      "languages": {
+        "C": {
+          "files": 429,
+          "lines": 343422,
+          "bytes": 9320847
+        },
+        "C/C++ Header": {
+          "files": 637,
+          "lines": 121674,
+          "bytes": 4288398
+        },
+        "C++": {
+          "files": 344,
+          "lines": 71519,
+          "bytes": 2158675
+        },
+        "Arduino / C++": {
+          "files": 140,
+          "lines": 16030,
+          "bytes": 536685
+        },
+        "Markdown": {
+          "files": 31,
+          "lines": 4891,
+          "bytes": 209899
+        },
+        "HTML": {
+          "files": 8,
+          "lines": 2131,
+          "bytes": 77812
+        },
+        "JSON": {
+          "files": 11,
+          "lines": 1615,
+          "bytes": 52010
+        },
+        "reStructuredText": {
+          "files": 3,
+          "lines": 1056,
+          "bytes": 39852
+        },
+        "CMake": {
+          "files": 11,
+          "lines": 708,
+          "bytes": 22806
+        },
+        "Dart": {
+          "files": 2,
+          "lines": 619,
+          "bytes": 23210
+        },
+        "JavaScript": {
+          "files": 4,
+          "lines": 400,
+          "bytes": 14242
+        },
+        "Shell": {
+          "files": 6,
+          "lines": 257,
+          "bytes": 8147
+        },
+        "YAML": {
+          "files": 5,
+          "lines": 244,
+          "bytes": 10182
+        },
+        "XML": {
+          "files": 7,
+          "lines": 131,
+          "bytes": 6545
+        },
+        "Kotlin": {
+          "files": 4,
+          "lines": 99,
+          "bytes": 2838
+        },
+        "Swift": {
+          "files": 6,
+          "lines": 83,
+          "bytes": 2287
+        },
+        "Java": {
+          "files": 1,
+          "lines": 39,
+          "bytes": 1544
+        },
+        "Python": {
+          "files": 1,
+          "lines": 32,
+          "bytes": 1276
+        },
+        "INI": {
+          "files": 1,
+          "lines": 11,
+          "bytes": 244
+        }
+      },
+      "technologies": [
+        "Android",
+        "Arduino",
+        "BLE / flutter_blue_plus",
+        "Bluetooth LE",
+        "CMake",
+        "Dart",
+        "Dart / Flutter",
+        "ESP32",
+        "Express",
+        "Flutter",
+        "Geolocation",
+        "Gradle / Kotlin DSL",
+        "Gradle Wrapper",
+        "JavaScript / TypeScript",
+        "Kotlin",
+        "Kotlin Android",
+        "NPM",
+        "Node.js / NPM",
+        "Python",
+        "Redis",
+        "Socket.IO"
+      ],
+      "interesting_files": [
+        "CMakeLists.txt",
+        "build.gradle.kts",
+        "gradlew",
+        "package-lock.json",
+        "package.json",
+        "pubspec.lock",
+        "pubspec.yaml",
+        "settings.gradle.kts"
+      ]
+    },
+    {
+      "name": "Arduino",
+      "path": "/home/redse/coding/projek/Arduino",
+      "files_total": 349,
+      "source_files": 329,
+      "source_lines": 202122,
+      "source_bytes": 11793998,
+      "languages": {
+        "C": {
+          "files": 128,
+          "lines": 80156,
+          "bytes": 3667493
+        },
+        "C/C++ Header": {
+          "files": 74,
+          "lines": 67552,
+          "bytes": 4481125
+        },
+        "Arduino / C++": {
+          "files": 99,
+          "lines": 42905,
+          "bytes": 3249535
+        },
+        "C++": {
+          "files": 12,
+          "lines": 10940,
+          "bytes": 371527
+        },
+        "Markdown": {
+          "files": 6,
+          "lines": 236,
+          "bytes": 14755
+        },
+        "Python": {
+          "files": 2,
+          "lines": 173,
+          "bytes": 5426
+        },
+        "Makefile": {
+          "files": 2,
+          "lines": 45,
+          "bytes": 837
+        },
+        "JSON": {
+          "files": 2,
+          "lines": 44,
+          "bytes": 1011
+        },
+        "Shell": {
+          "files": 1,
+          "lines": 38,
+          "bytes": 1221
+        },
+        "CMake": {
+          "files": 3,
+          "lines": 33,
+          "bytes": 1068
+        }
+      },
+      "technologies": [
+        "Arduino",
+        "Bluetooth LE",
+        "CMake",
+        "ESP32",
+        "Firebase",
+        "GPS",
+        "Make",
+        "Python"
+      ],
+      "interesting_files": [
+        "CMakeLists.txt",
+        "Makefile"
+      ]
+    },
+    {
+      "name": "ai_agent_world_v15",
+      "path": "/home/redse/coding/projek/ai_agent_world_v15",
+      "files_total": 502,
+      "source_files": 335,
+      "source_lines": 185046,
+      "source_bytes": 7557003,
+      "languages": {
+        "JSON": {
+          "files": 62,
+          "lines": 145277,
+          "bytes": 4607358
+        },
+        "Python": {
+          "files": 146,
+          "lines": 30846,
+          "bytes": 2177582
+        },
+        "Markdown": {
+          "files": 121,
+          "lines": 7931,
+          "bytes": 421090
+        },
+        "HTML": {
+          "files": 1,
+          "lines": 914,
+          "bytes": 348503
+        },
+        "Shell": {
+          "files": 5,
+          "lines": 78,
+          "bytes": 2470
+        }
+      },
+      "technologies": [
+        "FastAPI",
+        "HTTPX",
+        "OpenRouter",
+        "Python",
+        "Python / pip",
+        "Requests",
+        "SQLite",
+        "Uvicorn"
+      ],
+      "interesting_files": [
+        "requirements.txt"
+      ]
+    },
+    {
+      "name": "shopee",
+      "path": "/home/redse/coding/projek/shopee",
+      "files_total": 907,
+      "source_files": 81,
+      "source_lines": 66628,
+      "source_bytes": 4317297,
+      "languages": {
+        "JSON": {
+          "files": 57,
+          "lines": 31420,
+          "bytes": 1021132
+        },
+        "HTML": {
+          "files": 8,
+          "lines": 24608,
+          "bytes": 2710948
+        },
+        "JavaScript": {
+          "files": 12,
+          "lines": 9969,
+          "bytes": 557913
+        },
+        "Python": {
+          "files": 2,
+          "lines": 300,
+          "bytes": 17697
+        },
+        "Go": {
+          "files": 1,
+          "lines": 219,
+          "bytes": 6291
+        },
+        "Shell": {
+          "files": 1,
+          "lines": 112,
+          "bytes": 3316
+        }
+      },
+      "technologies": [
+        "Axios",
+        "Go",
+        "Go Modules",
+        "JavaScript / TypeScript",
+        "NPM",
+        "Node.js / NPM",
+        "Playwright",
+        "Python"
+      ],
+      "interesting_files": [
+        "go.mod",
+        "go.sum",
+        "package-lock.json",
+        "package.json"
+      ]
+    },
+    {
+      "name": "(root)",
+      "path": "/home/redse/coding/projek",
+      "files_total": 25,
+      "source_files": 18,
+      "source_lines": 64699,
+      "source_bytes": 3542435,
+      "languages": {
+        "Python": {
+          "files": 14,
+          "lines": 42659,
+          "bytes": 2006649
+        },
+        "JSON": {
+          "files": 4,
+          "lines": 22040,
+          "bytes": 1535786
+        }
+      },
+      "technologies": [
+        "Arduino",
+        "Firebase",
+        "Python",
+        "SQLite"
+      ],
+      "interesting_files": []
+    },
+    {
+      "name": "backup apk",
+      "path": "/home/redse/coding/projek/backup apk",
+      "files_total": 83,
+      "source_files": 78,
+      "source_lines": 47297,
+      "source_bytes": 2201333,
+      "languages": {
+        "Kotlin": {
+          "files": 75,
+          "lines": 29170,
+          "bytes": 1331384
+        },
+        "Python": {
+          "files": 2,
+          "lines": 18092,
+          "bytes": 868824
+        },
+        "JavaScript": {
+          "files": 1,
+          "lines": 35,
+          "bytes": 1125
+        }
+      },
+      "technologies": [
+        "Firebase",
+        "JavaScript / TypeScript",
+        "Kotlin",
+        "Python"
+      ],
+      "interesting_files": []
+    },
+    {
+      "name": "bottiket",
+      "path": "/home/redse/coding/projek/bottiket",
+      "files_total": 8,
+      "source_files": 6,
+      "source_lines": 24895,
+      "source_bytes": 1039198,
+      "languages": {
+        "HTML": {
+          "files": 5,
+          "lines": 24720,
+          "bytes": 1033269
+        },
+        "Go": {
+          "files": 1,
+          "lines": 175,
+          "bytes": 5929
+        }
+      },
+      "technologies": [
+        "Go"
+      ],
+      "interesting_files": []
+    },
+    {
+      "name": "produk-digital",
+      "path": "/home/redse/coding/projek/produk-digital",
+      "files_total": 141,
+      "source_files": 101,
+      "source_lines": 14492,
+      "source_bytes": 611937,
+      "languages": {
+        "Go": {
+          "files": 33,
+          "lines": 11244,
+          "bytes": 396508
+        },
+        "Markdown": {
+          "files": 31,
+          "lines": 2088,
+          "bytes": 66080
+        },
+        "Shell": {
+          "files": 22,
+          "lines": 530,
+          "bytes": 18480
+        },
+        "HTML": {
+          "files": 4,
+          "lines": 228,
+          "bytes": 48756
+        },
+        "JSON": {
+          "files": 6,
+          "lines": 210,
+          "bytes": 5015
+        },
+        "JavaScript": {
+          "files": 2,
+          "lines": 162,
+          "bytes": 56130
+        },
+        "Config": {
+          "files": 1,
+          "lines": 18,
+          "bytes": 610
+        },
+        "CSS": {
+          "files": 2,
+          "lines": 12,
+          "bytes": 20358
+        }
+      },
+      "technologies": [
+        "Go",
+        "Go Modules",
+        "Gorilla WebSocket",
+        "JavaScript / TypeScript",
+        "SQLite",
+        "WhatsMeow"
+      ],
+      "interesting_files": [
+        "go.mod",
+        "go.sum"
+      ]
+    },
+    {
+      "name": "remi",
+      "path": "/home/redse/coding/projek/remi",
+      "files_total": 25,
+      "source_files": 20,
+      "source_lines": 12116,
+      "source_bytes": 526372,
+      "languages": {
+        "JavaScript": {
+          "files": 8,
+          "lines": 6573,
+          "bytes": 286427
+        },
+        "JSON": {
+          "files": 4,
+          "lines": 2812,
+          "bytes": 98654
+        },
+        "HTML": {
+          "files": 5,
+          "lines": 1448,
+          "bytes": 85826
+        },
+        "CSS": {
+          "files": 2,
+          "lines": 896,
+          "bytes": 46974
+        },
+        "Markdown": {
+          "files": 1,
+          "lines": 387,
+          "bytes": 8491
+        }
+      },
+      "technologies": [
+        "Express",
+        "JavaScript / TypeScript",
+        "NPM",
+        "Node.js / NPM",
+        "Redis",
+        "Socket.IO",
+        "WebSocket"
+      ],
+      "interesting_files": [
+        "package-lock.json",
+        "package.json"
+      ]
+    },
+    {
+      "name": "antam bot",
+      "path": "/home/redse/coding/projek/antam bot",
+      "files_total": 4,
+      "source_files": 3,
+      "source_lines": 8026,
+      "source_bytes": 307635,
+      "languages": {
+        "Go": {
+          "files": 2,
+          "lines": 7202,
+          "bytes": 271361
+        },
+        "Python": {
+          "files": 1,
+          "lines": 824,
+          "bytes": 36274
+        }
+      },
+      "technologies": [
+        "Go",
+        "Python"
+      ],
+      "interesting_files": []
+    },
+    {
+      "name": "warlok",
+      "path": "/home/redse/coding/projek/warlok",
+      "files_total": 42,
+      "source_files": 36,
+      "source_lines": 6970,
+      "source_bytes": 337234,
+      "languages": {
+        "HTML": {
+          "files": 10,
+          "lines": 5622,
+          "bytes": 258094
+        },
+        "Python": {
+          "files": 2,
+          "lines": 1324,
+          "bytes": 54700
+        },
+        "JSON": {
+          "files": 24,
+          "lines": 24,
+          "bytes": 24440
+        }
+      },
+      "technologies": [
+        "Python"
+      ],
+      "interesting_files": []
+    },
+    {
+      "name": "jaga-panen",
+      "path": "/home/redse/coding/projek/jaga-panen",
+      "files_total": 12,
+      "source_files": 6,
+      "source_lines": 3521,
+      "source_bytes": 148044,
+      "languages": {
+        "JSON": {
+          "files": 2,
+          "lines": 2035,
+          "bytes": 72381
+        },
+        "HTML": {
+          "files": 2,
+          "lines": 645,
+          "bytes": 34381
+        },
+        "JavaScript": {
+          "files": 1,
+          "lines": 565,
+          "bytes": 29891
+        },
+        "Go": {
+          "files": 1,
+          "lines": 276,
+          "bytes": 11391
+        }
+      },
+      "technologies": [
+        "Express",
+        "Go",
+        "Go Modules",
+        "JavaScript / TypeScript",
+        "NPM",
+        "Node.js / NPM",
+        "SQLite",
+        "WhatsMeow"
+      ],
+      "interesting_files": [
+        "go.mod",
+        "go.sum",
+        "package-lock.json",
+        "package.json"
+      ]
+    },
+    {
+      "name": "portofolio",
+      "path": "/home/redse/coding/projek/portofolio",
+      "files_total": 13,
+      "source_files": 11,
+      "source_lines": 2665,
+      "source_bytes": 86266,
+      "languages": {
+        "JSON": {
+          "files": 2,
+          "lines": 1717,
+          "bytes": 58354
+        },
+        "CSS": {
+          "files": 1,
+          "lines": 325,
+          "bytes": 11436
+        },
+        "JavaScript / JSX": {
+          "files": 2,
+          "lines": 232,
+          "bytes": 8490
+        },
+        "Markdown": {
+          "files": 1,
+          "lines": 228,
+          "bytes": 3936
+        },
+        "JavaScript": {
+          "files": 2,
+          "lines": 81,
+          "bytes": 2083
+        },
+        "Shell": {
+          "files": 2,
+          "lines": 60,
+          "bytes": 1303
+        },
+        "HTML": {
+          "files": 1,
+          "lines": 22,
+          "bytes": 664
+        }
+      },
+      "technologies": [
+        "Bluetooth LE",
+        "ESP32",
+        "Firebase",
+        "JavaScript / TypeScript",
+        "NPM",
+        "Node.js / NPM",
+        "React",
+        "Vite",
+        "WebSocket"
+      ],
+      "interesting_files": [
+        "package-lock.json",
+        "package.json"
+      ]
+    },
+    {
+      "name": "my_agent",
+      "path": "/home/redse/coding/projek/my_agent",
+      "files_total": 15,
+      "source_files": 8,
+      "source_lines": 1871,
+      "source_bytes": 64689,
+      "languages": {
+        "JSON": {
+          "files": 2,
+          "lines": 1173,
+          "bytes": 40626
+        },
+        "Go": {
+          "files": 2,
+          "lines": 256,
+          "bytes": 6851
+        },
+        "HTML": {
+          "files": 1,
+          "lines": 177,
+          "bytes": 7356
+        },
+        "Python": {
+          "files": 2,
+          "lines": 164,
+          "bytes": 6372
+        },
+        "JavaScript": {
+          "files": 1,
+          "lines": 101,
+          "bytes": 3484
+        }
+      },
+      "technologies": [
+        "Axios",
+        "Express",
+        "Go",
+        "Go Modules",
+        "JavaScript / TypeScript",
+        "NPM",
+        "Node.js / NPM",
+        "Python",
+        "Redis",
+        "SQLite",
+        "WhatsMeow"
+      ],
+      "interesting_files": [
+        "go.mod",
+        "go.sum",
+        "package-lock.json",
+        "package.json"
+      ]
+    },
+    {
+      "name": "file_bot",
+      "path": "/home/redse/coding/projek/file_bot",
+      "files_total": 24,
+      "source_files": 11,
+      "source_lines": 1469,
+      "source_bytes": 54991,
+      "languages": {
+        "Go": {
+          "files": 3,
+          "lines": 636,
+          "bytes": 16300
+        },
+        "HTML": {
+          "files": 2,
+          "lines": 553,
+          "bytes": 29865
+        },
+        "Python": {
+          "files": 2,
+          "lines": 250,
+          "bytes": 7864
+        },
+        "JSON": {
+          "files": 4,
+          "lines": 30,
+          "bytes": 962
+        }
+      },
+      "technologies": [
+        "Go",
+        "Go Modules",
+        "Python"
+      ],
+      "interesting_files": [
+        "go.mod",
+        "go.sum"
+      ]
+    },
+    {
+      "name": "projek-yt",
+      "path": "/home/redse/coding/projek/projek-yt",
+      "files_total": 11,
+      "source_files": 5,
+      "source_lines": 1417,
+      "source_bytes": 51991,
+      "languages": {
+        "JSON": {
+          "files": 2,
+          "lines": 1067,
+          "bytes": 37364
+        },
+        "JavaScript": {
+          "files": 1,
+          "lines": 204,
+          "bytes": 9279
+        },
+        "Python": {
+          "files": 1,
+          "lines": 116,
+          "bytes": 4255
+        },
+        "Shell": {
+          "files": 1,
+          "lines": 30,
+          "bytes": 1093
+        }
+      },
+      "technologies": [
+        "Express",
+        "JavaScript / TypeScript",
+        "NPM",
+        "Node.js / NPM",
+        "Python"
+      ],
+      "interesting_files": [
+        "package-lock.json",
+        "package.json"
+      ]
+    },
+    {
+      "name": "portfolio_source_scanner",
+      "path": "/home/redse/coding/projek/portfolio_source_scanner",
+      "files_total": 2,
+      "source_files": 2,
+      "source_lines": 1412,
+      "source_bytes": 38713,
+      "languages": {
+        "Python": {
+          "files": 1,
+          "lines": 1339,
+          "bytes": 36871
+        },
+        "Markdown": {
+          "files": 1,
+          "lines": 73,
+          "bytes": 1842
+        }
+      },
+      "technologies": [
+        "Arduino",
+        "Bluetooth LE",
+        "ESP32",
+        "Firebase",
+        "OpenRouter",
+        "Python",
+        "Redis",
+        "SQLite",
+        "WebSocket"
+      ],
+      "interesting_files": []
+    },
+    {
+      "name": "proxy",
+      "path": "/home/redse/coding/projek/proxy",
+      "files_total": 17,
+      "source_files": 8,
+      "source_lines": 1360,
+      "source_bytes": 40892,
+      "languages": {
+        "Go": {
+          "files": 2,
+          "lines": 1319,
+          "bytes": 40239
+        },
+        "INI": {
+          "files": 2,
+          "lines": 21,
+          "bytes": 337
+        },
+        "TOML": {
+          "files": 4,
+          "lines": 20,
+          "bytes": 316
+        }
+      },
+      "technologies": [
+        "Go"
+      ],
+      "interesting_files": []
+    },
+    {
+      "name": "ytdownload",
+      "path": "/home/redse/coding/projek/ytdownload",
+      "files_total": 4,
+      "source_files": 3,
+      "source_lines": 1020,
+      "source_bytes": 27580,
+      "languages": {
+        "Markdown": {
+          "files": 1,
+          "lines": 649,
+          "bytes": 14452
+        },
+        "Python": {
+          "files": 2,
+          "lines": 371,
+          "bytes": 13128
+        }
+      },
+      "technologies": [
+        "Python"
+      ],
+      "interesting_files": []
+    },
+    {
+      "name": "caturbot",
+      "path": "/home/redse/coding/projek/caturbot",
+      "files_total": 9,
+      "source_files": 8,
+      "source_lines": 683,
+      "source_bytes": 18196,
+      "languages": {
+        "Python": {
+          "files": 8,
+          "lines": 683,
+          "bytes": 18196
+        }
+      },
+      "technologies": [
+        "Python"
+      ],
+      "interesting_files": []
+    },
+    {
+      "name": "saham",
+      "path": "/home/redse/coding/projek/saham",
+      "files_total": 4,
+      "source_files": 2,
+      "source_lines": 679,
+      "source_bytes": 17895,
+      "languages": {
+        "Go": {
+          "files": 1,
+          "lines": 593,
+          "bytes": 16174
+        },
+        "JSON": {
+          "files": 1,
+          "lines": 86,
+          "bytes": 1721
+        }
+      },
+      "technologies": [
+        "Go",
+        "Go Modules"
+      ],
+      "interesting_files": [
+        "go.mod",
+        "go.sum"
+      ]
+    },
+    {
+      "name": "projek_arka",
+      "path": "/home/redse/coding/projek/projek_arka",
+      "files_total": 8,
+      "source_files": 2,
+      "source_lines": 335,
+      "source_bytes": 10738,
+      "languages": {
+        "Go": {
+          "files": 1,
+          "lines": 314,
+          "bytes": 10021
+        },
+        "JSON": {
+          "files": 1,
+          "lines": 21,
+          "bytes": 717
+        }
+      },
+      "technologies": [
+        "Go",
+        "Go Modules",
+        "SQLite",
+        "WhatsMeow"
+      ],
+      "interesting_files": [
+        "go.mod",
+        "go.sum"
+      ]
+    },
+    {
+      "name": "shared",
+      "path": "/home/redse/coding/projek/shared",
+      "files_total": 11,
+      "source_files": 11,
+      "source_lines": 244,
+      "source_bytes": 4534,
+      "languages": {
+        "Go": {
+          "files": 11,
+          "lines": 244,
+          "bytes": 4534
+        }
+      },
+      "technologies": [
+        "Go"
+      ],
+      "interesting_files": []
+    },
+    {
+      "name": "wisata",
+      "path": "/home/redse/coding/projek/wisata",
+      "files_total": 2,
+      "source_files": 2,
+      "source_lines": 190,
+      "source_bytes": 6424,
+      "languages": {
+        "Python": {
+          "files": 1,
+          "lines": 151,
+          "bytes": 5609
+        },
+        "JSON": {
+          "files": 1,
+          "lines": 39,
+          "bytes": 815
+        }
+      },
+      "technologies": [
+        "Python"
+      ],
+      "interesting_files": []
+    },
+    {
+      "name": "buyer",
+      "path": "/home/redse/coding/projek/buyer",
+      "files_total": 1,
+      "source_files": 1,
+      "source_lines": 67,
+      "source_bytes": 1358,
+      "languages": {
+        "Go": {
+          "files": 1,
+          "lines": 67,
+          "bytes": 1358
+        }
+      },
+      "technologies": [
+        "Go"
+      ],
+      "interesting_files": []
+    },
+    {
+      "name": "admin",
+      "path": "/home/redse/coding/projek/admin",
+      "files_total": 1,
+      "source_files": 1,
+      "source_lines": 54,
+      "source_bytes": 975,
+      "languages": {
+        "Go": {
+          "files": 1,
+          "lines": 54,
+          "bytes": 975
+        }
+      },
+      "technologies": [
+        "Go"
+      ],
+      "interesting_files": []
+    },
+    {
+      "name": "seller",
+      "path": "/home/redse/coding/projek/seller",
+      "files_total": 1,
+      "source_files": 1,
+      "source_lines": 53,
+      "source_bytes": 1082,
+      "languages": {
+        "Go": {
+          "files": 1,
+          "lines": 53,
+          "bytes": 1082
+        }
+      },
+      "technologies": [
+        "Go"
+      ],
+      "interesting_files": []
+    },
+    {
+      "name": "EasyEDA-Pro",
+      "path": "/home/redse/coding/projek/EasyEDA-Pro",
+      "files_total": 27,
+      "source_files": 1,
+      "source_lines": 23,
+      "source_bytes": 616,
+      "languages": {
+        "JSON": {
+          "files": 1,
+          "lines": 23,
+          "bytes": 616
+        }
+      },
+      "technologies": [],
+      "interesting_files": []
+    },
+    {
+      "name": "gps-kertas",
+      "path": "/home/redse/coding/projek/gps-kertas",
+      "files_total": 1,
+      "source_files": 0,
+      "source_lines": 0,
+      "source_bytes": 0,
+      "languages": {},
+      "technologies": [],
+      "interesting_files": []
+    },
+    {
+      "name": "Lightshot",
+      "path": "/home/redse/coding/projek/Lightshot",
+      "files_total": 1,
+      "source_files": 0,
+      "source_lines": 0,
+      "source_bytes": 0,
+      "languages": {},
+      "technologies": [],
+      "interesting_files": []
+    }
+  ],
+  "unknown_extensions": {
+    ".txt": 626,
+    ".hyb": 104,
+    ".delta": 65,
+    ".download": 36,
+    ".mod": 30,
+    ".log": 28,
+    ".old": 28,
+    ".sum": 26,
+    ".sqlite-wal": 25,
+    ".properties": 16,
+    ".pb": 15,
+    ".vlpset": 15,
+    ".sbstore": 15,
+    ".key": 12,
+    ".patch": 12,
+    ".epro": 11,
+    ".har": 11,
+    ".xcconfig": 10,
+    ".eprj": 8,
+    ".dat": 8,
+    ".example": 8,
+    ".plist": 7,
+    ".store": 7,
+    ".ldb": 7,
+    ".jsonlz4": 7,
+    ".dump": 7,
+    ".diff": 6,
+    ".sha256": 6,
+    ".db-journal": 5,
+    ".pkl": 4,
+    ".xcworkspacedata": 3,
+    ".mk": 3,
+    ".iml": 2,
+    ".cmake": 2,
+    ".storyboard": 2,
+    ".pbxproj": 2,
+    ".xcscheme": 2,
+    ".xcsettings": 2,
+    ".entitlements": 2,
+    ".rdb": 2,
+    ".pma": 2,
+    ".binarypb": 2,
+    ".wasm": 2,
+    ".bdic": 2,
+    ".baf": 2,
+    ".baj": 2,
+    ".mozlz4": 2,
+    ".lz4": 2,
+    ".sqlite-shm": 2,
+    ".dmp": 2,
+    ".lock": 1,
+    ".rc": 1,
+    ".manifest": 1,
+    ".m": 1,
+    ".bat": 1,
+    ".xib": 1,
+    ".4_13422884434588280": 1,
+    ".4_13422884433326301": 1,
+    ".4_13422884434602436": 1,
+    ".4_13422884434597738": 1,
+    ".32_13422851492679308": 1,
+    ".4_13422884434590844": 1,
+    ".32_13422851492757215": 1,
+    ".k1htzu": 1,
+    ".69rhgv": 1,
+    ".geckodriver_backup_5": 1,
+    ".geckodriver_backup_11": 1,
+    ".geckodriver_backup": 1,
+    ".sqlite-journal": 1,
+    ".geckodriver_backup_3": 1,
+    ".geckodriver_backup_9": 1,
+    ".geckodriver_backup_7": 1,
+    ".geckodriver_backup_6": 1,
+    ".geckodriver_backup_8": 1,
+    ".geckodriver_backup_4": 1,
+    ".geckodriver_backup_12": 1,
+    ".geckodriver_backup_1": 1,
+    ".geckodriver_backup_2": 1,
+    ".geckodriver_backup_10": 1,
+    ".jsonlz4-20260225164830": 1,
+    ".xpi": 1,
+    ".filter": 1,
+    ".little": 1,
+    ".extra": 1,
+    ".1": 1,
+    ".out": 1,
+    ".db-shm": 1,
+    ".db-wal": 1,
+    ".iekq9b": 1
+  },
+  "skipped_too_large": 1,
+  "permission_errors": 7,
+  "settings": {
+    "include_vendor": false,
+    "max_file_size": 5242880,
+    "source_tech_scan": true,
+    "ignored_directories": [
+      ".cache",
+      ".coverage",
+      ".dart_tool",
+      ".env",
+      ".expo",
+      ".git",
+      ".gradle",
+      ".hg",
+      ".idea",
+      ".mypy_cache",
+      ".next",
+      ".nox",
+      ".nuxt",
+      ".pub-cache",
+      ".pytest_cache",
+      ".ruff_cache",
+      ".svelte-kit",
+      ".svn",
+      ".terraform",
+      ".tox",
+      ".venv",
+      ".vscode",
+      "DerivedData",
+      "Pods",
+      "__pycache__",
+      "bower_components",
+      "build",
+      "cache",
+      "coverage",
+      "dist",
+      "env",
+      "node_modules",
+      "out",
+      "target",
+      "vendor",
+      "venv"
+    ]
+  }
+}
