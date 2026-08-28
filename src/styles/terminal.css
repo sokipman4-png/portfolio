@@ -1,0 +1,102 @@
+[data-design="terminal"] {
+  --bg: #060908;
+  --surface: #0b100e;
+  --surface-2: #111815;
+  --ink: #e9f5ed;
+  --muted: #7f9186;
+  --line: rgba(145, 255, 179, .16);
+  --accent: #83ff9d;
+  --accent-ink: #061008;
+  --nav-bg: rgba(11, 16, 14, .9);
+  --shadow: none;
+  --radius: 3px;
+  --button-radius: 2px;
+  --badge-radius: 2px;
+  --dialog-radius: 4px;
+}
+
+[data-design="terminal"] .app-shell {
+  background:
+    linear-gradient(rgba(131,255,157,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(131,255,157,.025) 1px, transparent 1px),
+    var(--bg);
+  background-size: 32px 32px;
+}
+
+[data-design="terminal"] .brand-symbol {
+  border: 1px solid var(--accent);
+  border-radius: 1px;
+  background: transparent;
+  color: var(--accent);
+}
+
+[data-design="terminal"] .brand-name,
+[data-design="terminal"] .bubble-tab,
+[data-design="terminal"] .language-pill button,
+[data-design="terminal"] .row-price,
+[data-design="terminal"] .row-license {
+  font-family: var(--font-mono);
+}
+
+[data-design="terminal"] .bubble-nav,
+[data-design="terminal"] .language-pill {
+  border-radius: 3px;
+}
+
+[data-design="terminal"] .bubble-tab {
+  border-radius: 2px;
+}
+
+[data-design="terminal"] .bubble-tab.active {
+  background: var(--accent);
+  color: var(--accent-ink);
+  box-shadow: 0 0 22px rgba(131,255,157,.22);
+}
+
+[data-design="terminal"] .home-marquee {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+[data-design="terminal"] .marquee-group b {
+  color: var(--accent-ink);
+}
+
+[data-design="terminal"] .home-hero h1,
+[data-design="terminal"] .featured-card-main h2,
+[data-design="terminal"] .generic-view-heading h1,
+[data-design="terminal"] .project-index-copy h1,
+[data-design="terminal"] .about-heading h1,
+[data-design="terminal"] .contact-card-v5 h1 {
+  text-shadow: 0 0 25px rgba(131,255,157,.04);
+}
+
+[data-design="terminal"] .featured-card:hover,
+[data-design="terminal"] .project-row:hover {
+  background: rgba(131,255,157,.05);
+}
+
+
+[data-design="terminal"][data-theme="light"] {
+  --bg: #edf4ee;
+  --surface: #f7fbf7;
+  --surface-2: #e2ece4;
+  --ink: #102419;
+  --muted: #607268;
+  --line: rgba(16,36,25,.16);
+  --accent: #17a75a;
+  --accent-ink: #ffffff;
+  --nav-bg: rgba(247,251,247,.92);
+}
+
+[data-design="terminal"][data-theme="dark"] {
+  --bg: #060908;
+  --surface: #0b100e;
+  --surface-2: #111815;
+  --ink: #e9f5ed;
+  --muted: #7f9186;
+  --line: rgba(145,255,179,.16);
+  --accent: #83ff9d;
+  --accent-ink: #061008;
+  --nav-bg: rgba(11,16,14,.9);
+}

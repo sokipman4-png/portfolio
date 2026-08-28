@@ -1,60 +1,96 @@
-import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+} from "@/components/ui/dialog"
 import { Badge } from "@/components/ui/badge"
-import { projectNotes } from "@/data/site-content"
-import { detectedLanguages, normalizeTechnologies } from "@/lib/portfolio"
 
-export function ProjectDialog({ project, open, onOpenChange, language, labels }) {
+export function ProjectDialog({
+  project,
+  open,
+  onOpenChange,
+  language,
+  labels,
+  liveMetric,
+}) {
   if (!project) return null
 
-  const note = projectNotes[project.name]
-  const title = note?.title || project.name
-  const description = note?.[language] || labels.noDescription
-  const technologies = normalizeTechnologies(project.technologies)
-  const languages = detectedLanguages(project.languages)
+  const business = project.business || {}
+  const users = liveMetric?.users ?? business.users
+  const accesses = liveMetric?.accesses ?? business.accesses ?? 0
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-[760px]">
-        <div className="pr-12">
-          <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
-            {labels.kicker}
-          </p>
-          <DialogTitle className="text-4xl font-semibold tracking-[-0.055em] md:text-6xl">
-            {title}
+      <DialogContent>
+        <div className="project-detail-head">
+          <p className="micro-label">{labels.kicker}</p>
+
+          <DialogTitle className="project-detail-title">
+            {project.title}
           </DialogTitle>
-          <DialogDescription className="mt-5 max-w-2xl text-sm leading-7 text-muted md:text-base md:leading-8">
-            {description}
+
+          <DialogDescription className="project-detail-description">
+            {project.description?.[language] || labels.noDescription}
           </DialogDescription>
         </div>
 
-        <section className="mt-9 border-t border-line pt-6">
-          <h3 className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
-            {labels.technologies}
-          </h3>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {technologies.length ? (
-              technologies.map((technology) => <Badge key={technology}>{technology}</Badge>)
-            ) : (
-              <span className="text-sm text-muted">{labels.noTechnology}</span>
-            )}
-          </div>
-        </section>
+        <div className="project-detail-metrics">
+          <Metric label={labels.users} value={users ?? labels.notSet} />
+          <Metric label={labels.accesses} value={accesses} />
+          <Metric
+            label={labels.price}
+            value={
+              business.price?.[language] ||
+              business.price?.id ||
+              labels.notSet
+            }
+          />
+          <Metric
+            label={labels.license}
+            value={
+              business.license?.[language] ||
+              business.license?.id ||
+              labels.notSet
+            }
+          />
+        </div>
 
-        <section className="mt-8 border-t border-line pt-6">
-          <h3 className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
-            {labels.languages}
-          </h3>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {languages.length ? (
-              languages.map((item) => (
-                <Badge className="normal-case tracking-normal" key={item}>{item}</Badge>
-              ))
-            ) : (
-              <span className="text-sm text-muted">{labels.noLanguage}</span>
-            )}
-          </div>
-        </section>
+        {project.platforms?.length > 0 && (
+          <section className="project-detail-section">
+            <h3 className="micro-label">{labels.platforms}</h3>
+            <div className="project-detail-badges">
+              {project.platforms.map((item) => (
+                <Badge key={item}>{item}</Badge>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {project.highlights?.[language]?.length > 0 && (
+          <section className="project-detail-section">
+            <h3 className="micro-label">{labels.highlights}</h3>
+
+            <ul className="project-highlight-list">
+              {project.highlights[language].map((item) => (
+                <li key={item}>
+                  <span />
+                  <p>{item}</p>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
       </DialogContent>
     </Dialog>
+  )
+}
+
+function Metric({ label, value }) {
+  return (
+    <div>
+      <span className="micro-label">{label}</span>
+      <strong>{value}</strong>
+    </div>
   )
 }

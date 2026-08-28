@@ -1,13 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 cd "$(dirname "$0")"
-
-if [ ! -d node_modules ]; then
-  npm install
-fi
-
+[ -d node_modules ] || npm install
 npm run build
-
-echo
-echo "Build production selesai."
-echo "Output: $(pwd)/dist"
+echo "Build selesai: dist/"

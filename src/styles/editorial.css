@@ -1,0 +1,60 @@
+[data-design="editorial"] {
+  --bg: #eeeae1;
+  --surface: #f6f3ec;
+  --surface-2: #e4dfd4;
+  --ink: #101216;
+  --muted: #6b6e72;
+  --line: rgba(16, 18, 22, .15);
+  --accent: #b8ff58;
+  --accent-ink: #111318;
+  --nav-bg: rgba(246, 243, 236, .88);
+  --shadow: 0 16px 48px rgba(17, 18, 22, .06);
+  --radius: 5px;
+  --button-radius: 3px;
+  --badge-radius: 3px;
+  --dialog-radius: 6px;
+}
+
+[data-design="editorial"] .brand-symbol {
+  border-radius: 2px;
+}
+
+[data-design="editorial"] .bubble-nav,
+[data-design="editorial"] .language-pill {
+  border-radius: 999px;
+}
+
+[data-design="editorial"] .home-hero h1,
+[data-design="editorial"] .contact-card-v5 h1,
+[data-design="editorial"] .about-heading h1 {
+  font-weight: 650;
+}
+
+[data-design="editorial"] .featured-card,
+[data-design="editorial"] .activity-card-v5,
+[data-design="editorial"] .video-card-v5,
+[data-design="editorial"] .current-project-card {
+  box-shadow: none;
+}
+
+[data-design="editorial"] .project-index-view,
+[data-design="editorial"] .generic-view,
+[data-design="editorial"] .about-principles,
+[data-design="editorial"] .skills-panel,
+[data-design="editorial"] .contact-card-v5 {
+  box-shadow: none;
+}
+
+
+[data-design="editorial"][data-theme="dark"] {
+  --bg: #0d1012;
+  --surface: #141719;
+  --surface-2: #1c2022;
+  --ink: #f2efe7;
+  --muted: #999e9f;
+  --line: rgba(242,239,231,.13);
+  --accent: #b8ff58;
+  --accent-ink: #0c100c;
+  --nav-bg: rgba(20,23,25,.9);
+  --shadow: 0 18px 52px rgba(0,0,0,.22);
+}

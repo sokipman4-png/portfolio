@@ -2,7 +2,10 @@ import React from "react"
 import { createRoot } from "react-dom/client"
 import "@fontsource-variable/manrope"
 import "@fontsource-variable/jetbrains-mono"
-import "./index.css"
+import "./styles/base.css"
+import "./styles/editorial.css"
+import "./styles/terminal.css"
+import "./styles/studio.css"
 import App from "./App"
 
 createRoot(document.getElementById("root")).render(

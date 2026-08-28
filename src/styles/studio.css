@@ -1,0 +1,64 @@
+[data-design="studio"] {
+  --bg: #f3f5fa;
+  --surface: #ffffff;
+  --surface-2: #eef1f7;
+  --ink: #172033;
+  --muted: #6e7587;
+  --line: #e3e7ef;
+  --accent: #bfa5ff;
+  --accent-ink: #1a1531;
+  --nav-bg: rgba(255,255,255,.9);
+  --shadow: 0 14px 44px rgba(35, 47, 75, .07);
+  --radius: 28px;
+  --button-radius: 14px;
+  --badge-radius: 10px;
+  --dialog-radius: 30px;
+}
+
+[data-design="studio"] .brand-symbol {
+  border-radius: 12px;
+}
+
+[data-design="studio"] .bubble-nav,
+[data-design="studio"] .language-pill {
+  border-radius: 18px;
+  box-shadow: 0 8px 26px rgba(35, 47, 75, .08);
+}
+
+[data-design="studio"] .bubble-tab {
+  border-radius: 13px;
+}
+
+[data-design="studio"] .bubble-tab.active {
+  background: #172033;
+  color: white;
+  box-shadow: 0 8px 20px rgba(35, 47, 75, .18);
+}
+
+[data-design="studio"] .home-hero h1 .hero-soft {
+  color: #6f7af0;
+}
+
+[data-design="studio"] .featured-card:hover {
+  transform: translateY(-5px) scale(1.004);
+}
+
+[data-design="studio"] .project-search,
+[data-design="studio"] .sort-control {
+  border-radius: 15px;
+  background: var(--surface-2);
+}
+
+
+[data-design="studio"][data-theme="dark"] {
+  --bg: #10131b;
+  --surface: #171b25;
+  --surface-2: #202634;
+  --ink: #f2f4fb;
+  --muted: #9ca5b9;
+  --line: rgba(229,233,245,.13);
+  --accent: #bfa5ff;
+  --accent-ink: #171129;
+  --nav-bg: rgba(23,27,37,.9);
+  --shadow: 0 16px 48px rgba(0,0,0,.25);
+}

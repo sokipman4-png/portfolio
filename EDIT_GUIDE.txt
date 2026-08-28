@@ -1,0 +1,542 @@
+PANDUAN SIHRIZAL PORTFOLIO STANDALONE v4
+
+#Perubahan paling penting
+
+Versi ini **tidak terhubung ke `portfolio_scan.json` sama sekali**.
+
+Satu-satunya file data website adalah:
+
+
+src/data/site-content.js
+
+
+Cek sendiri:
+
+
+./verify-standalone.sh
+
+
+Kalau benar akan muncul:
+
+
+[OK] Tidak ada portfolio_scan di source website.
+[OK] Sumber data utama: src/data/site-content.js
+
+
+---
+
+#Kenapa versi sebelumnya terasa seperti site-content.js tidak berubah?
+
+Versi sebelumnya masih memiliki:
+
+
+import scan from "@/data/portfolio_scan.json"
+
+
+di `App.jsx`.
+
+Akibatnya beberapa hal seperti:
+
+- daftar project
+- statistik
+- bahasa project
+- teknologi project
+
+masih mengambil data dari scanner.
+
+`site-content.js` hanya mengatur sebagian teks/deskripsi/harga.
+
+Versi v4 menghapus arsitektur itu.
+
+---
+
+Edit data dan langsung melihat perubahan
+
+Jalankan:
+
+
+./run.sh
+
+
+Buka:
+
+
+http://localhost:5173
+
+
+Biarkan terminal tetap hidup.
+
+Kemudian edit:
+
+
+src/data/site-content.js
+
+
+Simpan file.
+
+Vite HMR akan memperbarui halaman browser otomatis, biasanya tanpa perlu restart.
+
+Jika tidak berubah:
+
+
+Ctrl + Shift + R
+
+
+Pastikan Anda mengedit folder yang sedang dijalankan:
+
+
+pwd
+
+
+dan:
+
+
+grep -n 'brand:' src/data/site-content.js
+
+
+---
+
+3 tampilan website
+
+Ada tiga desain yang benar-benar berbeda:
+
+#1. Editorial
+
+Nama internal:
+
+
+editorial
+
+
+Gaya:
+
+- warm paper
+- grid editorial
+- tipografi besar
+- garis tipis
+- foto menyatu dengan layout
+- cocok untuk portfolio personal/profesional
+
+CSS:
+
+
+src/styles/editorial.css
+
+
+Layout React:
+
+
+src/layouts/EditorialLayout.jsx
+
+
+---
+
+#2. Terminal
+
+Nama internal:
+
+
+terminal
+
+
+Gaya:
+
+- dark / engineering
+- sidebar kiri
+- mono typography
+- grid hijau
+- nuansa developer/system
+- cocok jika ingin terlihat teknikal
+
+CSS:
+
+
+src/styles/terminal.css
+
+
+Layout React:
+
+
+src/layouts/TerminalLayout.jsx
+
+
+---
+
+#3. Studio
+
+Nama internal:
+
+
+studio
+
+
+Gaya:
+
+- clean modern
+- card/bento
+- rounded
+- light
+- lebih ramah untuk calon klien/non-teknis
+
+CSS:
+
+
+src/styles/studio.css
+
+
+Layout React:
+
+
+src/layouts/StudioLayout.jsx
+
+
+---
+
+Memilih tampilan
+
+Saat website dibuka ada switcher mengambang di bawah:
+
+
+01 Editorial
+02 Terminal
+03 Studio
+
+
+Pilihan disimpan ke browser dengan:
+
+
+localStorage
+
+
+Untuk menentukan desain awal, edit:
+
+
+defaultDesign: "editorial",
+
+
+pilihan:
+
+
+defaultDesign: "editorial",
+defaultDesign: "terminal",
+defaultDesign: "studio",
+
+
+Setelah sudah memilih desain final dan tidak ingin visitor melihat tombol pemilih desain:
+
+
+showDesignSwitcher: false,
+
+
+---
+
+Data Project
+
+Semua project sekarang berada langsung di:
+
+
+export const projects = [
+
+
+Contoh:
+
+
+{
+  id: "aplikasi-saya",
+  title: "Aplikasi Saya",
+
+  visible: true,
+
+  featured: true,
+  featuredRank: 1,
+
+  description: {
+    id: "Deskripsi Bahasa Indonesia.",
+    en: "English description."
+  },
+
+  technologies: [
+    "Go",
+    "Redis",
+    "WebSocket"
+  ],
+
+  languages: [
+    "Go",
+    "JavaScript"
+  ],
+
+  business: {
+    users: 120,
+
+    price: {
+      id: "Rp99.000 / bulan",
+      en: "IDR 99,000 / month"
+    },
+
+    license: {
+      id: "Lisensi bulanan",
+      en: "Monthly license"
+    },
+
+    topRank: 1
+  }
+}
+
+
+Tidak ada scanner yang akan menimpa data ini.
+
+---
+
+Menyembunyikan project
+
+
+visible: false,
+
+
+Menampilkan:
+
+
+visible: true,
+
+
+---
+
+Menjadikan Project Pilihan
+
+
+featured: true,
+featuredRank: 1,
+
+
+Bukan project pilihan:
+
+
+featured: false,
+featuredRank: null,
+
+
+---
+
+Top Program
+
+Top Program memakai:
+
+
+business.users
+
+
+dan:
+
+
+business.topRank
+
+
+Jika Cloudflare KV sudah aktif, `users` live dari KV mengalahkan angka statis.
+
+Contoh:
+
+
+business: {
+  users: 250,
+  topRank: 1,
+  ...
+}
+
+
+---
+
+Statistik Hero
+
+Tidak lagi dihitung scanner.
+
+Edit sendiri:
+
+
+stats: {
+  projects: 31,
+  sourceLines: 5056831,
+  sourceFiles: 7572,
+  technologies: 40
+},
+
+
+Kalau ingin mengganti angka, edit di situ.
+
+---
+
+Foto profil
+
+
+profileImage: "/images/profile-placeholder.webp",
+
+
+Kompres foto asli:
+
+
+sudo apt install -y webp
+./optimize-image.sh ~/Pictures/foto-saya.jpg profile.webp 720
+
+
+Kemudian:
+
+
+profileImage: "/images/profile.webp",
+
+
+---
+
+Project Sedang Dikerjakan
+
+Cari:
+
+
+export const currentProjects = [
+
+
+Waktu order:
+
+
+orderedAt: "2026-08-28T14:30:00+07:00",
+
+
+Estimasi:
+
+
+estimatedDays: 14,
+
+
+Website menghitung otomatis:
+
+- waktu sejak order
+- estimasi
+- perkiraan selesai
+
+---
+
+Kegiatan
+
+Cari:
+
+
+export const activities = [
+
+
+Tambah:
+
+
+{
+  id: "seminar-surabaya",
+  demo: false,
+  date: "2026-09-10",
+  location: "Surabaya",
+  image: "/images/seminar.webp",
+
+  title: {
+    id: "Seminar Teknologi",
+    en: "Technology Seminar"
+  },
+
+  description: {
+    id: "Deskripsi kegiatan...",
+    en: "Activity description..."
+  }
+}
+
+
+Kompres gambar:
+
+
+./optimize-image.sh ~/Pictures/seminar.jpg seminar.webp 1200
+
+
+---
+
+YouTube
+
+Cari:
+
+
+export const youtube = {
+
+
+Isi:
+
+
+channelId: "UCxxxxxxxxxxxxxxxx",
+
+
+Cloudflare Function:
+
+
+functions/api/youtube.js
+
+
+akan mengambil upload terbaru dari RSS YouTube.
+
+---
+
+Update website online
+
+Setelah edit:
+
+
+git status
+git add .
+git commit -m "Update portfolio"
+git push
+
+
+Cloudflare Pages otomatis build dan deploy.
+
+Untuk development lokal, edit akan langsung terlihat saat:
+
+
+./run.sh
+
+
+masih berjalan.
+
+---
+
+Mengganti project lama dengan v4 tanpa kehilangan .git
+
+Kalau folder GitHub Anda sekarang adalah:
+
+
+~/coding/projek/portofolio/sihrizal-portfolio-pro
+
+
+Extract v4 di sebelahnya.
+
+Lalu backup:
+
+
+cp -a ~/coding/projek/portofolio/sihrizal-portfolio-pro \
+      ~/coding/projek/portofolio/sihrizal-portfolio-backup
+
+
+Salin v4 ke repository lama sambil mempertahankan `.git`:
+
+
+rsync -av --delete \
+  --exclude='.git' \
+  ~/coding/projek/portofolio/sihrizal-portfolio-standalone-v4/ \
+  ~/coding/projek/portofolio/sihrizal-portfolio-pro/
+
+
+Lalu:
+
+
+cd ~/coding/projek/portofolio/sihrizal-portfolio-pro
+npm install
+./run.sh
+
+
+Kalau sudah bagus:
+
+
+git add .
+git commit -m "Switch portfolio to standalone v4"
+git push
+
