@@ -1,5 +1,6 @@
 import {
   BookOpen,
+  ChevronUp,
   GripHorizontal,
   Layers3,
   Moon,
@@ -19,6 +20,8 @@ const effects = [
   ["wipe", PanelRightOpen],
 ]
 
+const IDLE_COLLAPSE_MS = 5500
+
 export function DesignSwitcher({
   design,
   onChange,
@@ -31,6 +34,9 @@ export function DesignSwitcher({
 }) {
   const boxRef = useRef(null)
   const dragRef = useRef(null)
+  const idleTimerRef = useRef(null)
+
+  const [expanded, setExpanded] = useState(false)
 
   const [position, setPosition] = useState(() => {
     try {
@@ -45,14 +51,43 @@ export function DesignSwitcher({
         return saved
       }
     } catch {}
+
     return null
   })
+
+  const clearIdleTimer = () => {
+    if (idleTimerRef.current) {
+      window.clearTimeout(idleTimerRef.current)
+      idleTimerRef.current = null
+    }
+  }
+
+  const scheduleCollapse = () => {
+    clearIdleTimer()
+
+    if (!expanded || dragRef.current) return
+
+    idleTimerRef.current = window.setTimeout(() => {
+      setExpanded(false)
+    }, IDLE_COLLAPSE_MS)
+  }
+
+  useEffect(() => {
+    if (!expanded) {
+      clearIdleTimer()
+      return
+    }
+
+    scheduleCollapse()
+    return clearIdleTimer
+  }, [expanded, design, theme, effect])
 
   useEffect(() => {
     const clamp = () => {
       if (!boxRef.current || !position) return
 
       const rect = boxRef.current.getBoundingClientRect()
+
       const next = {
         x: Math.max(
           8,
@@ -77,10 +112,16 @@ export function DesignSwitcher({
     return () => window.removeEventListener("resize", clamp)
   }, [position])
 
+  useEffect(() => {
+    return () => clearIdleTimer()
+  }, [])
+
   if (!visible) return null
 
   const startDrag = (event) => {
     if (!boxRef.current) return
+
+    clearIdleTimer()
 
     const rect = boxRef.current.getBoundingClientRect()
 
@@ -88,6 +129,9 @@ export function DesignSwitcher({
       pointerId: event.pointerId,
       dx: event.clientX - rect.left,
       dy: event.clientY - rect.top,
+      startX: event.clientX,
+      startY: event.clientY,
+      moved: false,
     }
 
     event.currentTarget.setPointerCapture(event.pointerId)
@@ -104,6 +148,13 @@ export function DesignSwitcher({
     if (!dragRef.current || !boxRef.current) return
 
     const rect = boxRef.current.getBoundingClientRect()
+
+    if (
+      Math.abs(event.clientX - dragRef.current.startX) > 3 ||
+      Math.abs(event.clientY - dragRef.current.startY) > 3
+    ) {
+      dragRef.current.moved = true
+    }
 
     setPosition({
       x: Math.max(
@@ -126,6 +177,8 @@ export function DesignSwitcher({
   const stopDrag = (event) => {
     if (!dragRef.current) return
 
+    const moved = dragRef.current.moved
+
     try {
       event.currentTarget.releasePointerCapture(
         dragRef.current.pointerId
@@ -140,19 +193,35 @@ export function DesignSwitcher({
         JSON.stringify(position)
       )
     }
+
+    if (!moved) {
+      setExpanded((value) => !value)
+    } else {
+      setExpanded(true)
+      scheduleCollapse()
+    }
   }
 
   const resetPosition = () => {
     localStorage.removeItem("portfolio-design-position")
     setPosition(null)
+    setExpanded(true)
+  }
+
+  const keepOpen = () => {
+    if (expanded) scheduleCollapse()
   }
 
   return (
     <div
       ref={boxRef}
-      className={`design-switcher ${
-        position ? "design-switcher--positioned" : ""
-      }`}
+      className={[
+        "design-switcher",
+        position ? "design-switcher--positioned" : "",
+        expanded
+          ? "design-switcher--expanded"
+          : "design-switcher--collapsed",
+      ].join(" ")}
       style={
         position
           ? {
@@ -161,6 +230,9 @@ export function DesignSwitcher({
             }
           : undefined
       }
+      onPointerDown={clearIdleTimer}
+      onPointerUp={keepOpen}
+      onClick={keepOpen}
     >
       <button
         className="design-drag-handle"
@@ -169,82 +241,112 @@ export function DesignSwitcher({
         onPointerUp={stopDrag}
         onPointerCancel={stopDrag}
         onDoubleClick={resetPosition}
-        aria-label="Geser pemilih tampilan"
-        title="Geser posisi · double-click untuk reset"
+        aria-label={
+          expanded
+            ? "Geser atau tutup pemilih tampilan"
+            : "Buka atau geser pemilih tampilan"
+        }
+        title="Klik untuk buka/tutup · geser untuk pindah · double-click untuk reset posisi"
       >
         <GripHorizontal className="h-4 w-4" />
       </button>
 
-      <div className="design-switch-content">
-        <div className="design-switch-title">
+      {!expanded ? (
+        <button
+          className="design-collapsed-button"
+          onClick={() => setExpanded(true)}
+        >
           <Palette className="h-3.5 w-3.5" />
           <span>{labels.label}</span>
+          <ChevronUp className="h-3.5 w-3.5" />
+        </button>
+      ) : (
+        <div className="design-switch-content">
+          <div className="design-switch-title">
+            <Palette className="h-3.5 w-3.5" />
+            <span>{labels.label}</span>
 
-          <button
-            className="design-theme-shortcut"
-            onClick={() =>
-              onThemeChange(theme === "dark" ? "light" : "dark")
-            }
-            title={theme === "dark" ? labels.light : labels.dark}
-          >
-            {theme === "dark" ? (
-              <Sun className="h-3.5 w-3.5" />
-            ) : (
-              <Moon className="h-3.5 w-3.5" />
-            )}
-          </button>
-        </div>
-
-        <div className="design-switch-options">
-          {designs.map((item, index) => (
             <button
-              key={item}
-              className={design === item ? "active" : ""}
-              onClick={() => onChange(item)}
+              className="design-theme-shortcut"
+              onClick={() =>
+                onThemeChange(
+                  theme === "dark" ? "light" : "dark"
+                )
+              }
+              title={
+                theme === "dark" ? labels.light : labels.dark
+              }
             >
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              {labels[item]}
-            </button>
-          ))}
-        </div>
-
-        <div className="design-subsection">
-          <span>{labels.theme}</span>
-          <div className="compact-choice">
-            <button
-              className={theme === "light" ? "active" : ""}
-              onClick={() => onThemeChange("light")}
-            >
-              <Sun className="h-3.5 w-3.5" />
-              {labels.light}
-            </button>
-            <button
-              className={theme === "dark" ? "active" : ""}
-              onClick={() => onThemeChange("dark")}
-            >
-              <Moon className="h-3.5 w-3.5" />
-              {labels.dark}
+              {theme === "dark" ? (
+                <Sun className="h-3.5 w-3.5" />
+              ) : (
+                <Moon className="h-3.5 w-3.5" />
+              )}
             </button>
           </div>
-        </div>
 
-        <div className="design-subsection">
-          <span>{labels.effect}</span>
-          <div className="effect-choice-grid">
-            {effects.map(([name, Icon]) => (
+          <div className="design-switch-options">
+            {designs.map((item, index) => (
               <button
-                key={name}
-                className={effect === name ? "active" : ""}
-                onClick={() => onEffectChange(name)}
-                title={labels[name]}
+                key={item}
+                className={design === item ? "active" : ""}
+                onClick={() => onChange(item)}
               >
-                <Icon className="h-3.5 w-3.5" />
-                <span>{labels[name]}</span>
+                <span>
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                {labels[item]}
               </button>
             ))}
           </div>
+
+          <div className="design-subsection">
+            <span>{labels.theme}</span>
+
+            <div className="compact-choice">
+              <button
+                className={
+                  theme === "light" ? "active" : ""
+                }
+                onClick={() => onThemeChange("light")}
+              >
+                <Sun className="h-3.5 w-3.5" />
+                {labels.light}
+              </button>
+
+              <button
+                className={
+                  theme === "dark" ? "active" : ""
+                }
+                onClick={() => onThemeChange("dark")}
+              >
+                <Moon className="h-3.5 w-3.5" />
+                {labels.dark}
+              </button>
+            </div>
+          </div>
+
+          <div className="design-subsection">
+            <span>{labels.effect}</span>
+
+            <div className="effect-choice-grid">
+              {effects.map(([name, Icon]) => (
+                <button
+                  key={name}
+                  className={
+                    effect === name ? "active" : ""
+                  }
+                  onClick={() => onEffectChange(name)}
+                  title={labels[name]}
+                >
+                  <Icon className="h-3.5 w-3.5" />
+                  <span>{labels[name]}</span>
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   )
 }

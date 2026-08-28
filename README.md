@@ -1,4 +1,4 @@
-# SIHRIZAL Portfolio Tabs v6
+# SIHRIZAL Portfolio Tabs v6.2
 
 Portfolio React + Vite untuk `sihrizal.online`.
 
@@ -51,4 +51,31 @@ TRAFFIC_SETUP.md
 
 ```text
 SECURITY_GUIDE.md
+```
+
+
+## Troubleshooting D1
+
+Baca `CLOUDFLARE_D1_FIX.md`.
+
+## Update website
+
+Baca `UPDATE_WEBSITE.md`.
+
+
+## Worker API routing v6.2
+
+`wrangler deploy` sekarang memakai `worker/index.js` sebagai Worker backend dan
+`run_worker_first: ["/api/*"]` agar API tidak jatuh ke SPA fallback.
+
+Baca:
+
+```text
+CLOUDFLARE_WORKER_API_FIX.md
+```
+
+Test production:
+
+```bash
+./check-production.sh
 ```

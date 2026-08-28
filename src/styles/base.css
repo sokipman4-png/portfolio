@@ -2328,3 +2328,99 @@ img {
     animation: none !important;
   }
 }
+
+
+/* ================================================================
+   v6.1 — compact auto-collapsing appearance control
+   ================================================================ */
+
+.design-switcher {
+  grid-template-columns: 30px minmax(0, 1fr);
+  grid-template-rows: auto;
+  transition:
+    width .22s cubic-bezier(.2,.8,.2,1),
+    min-width .22s cubic-bezier(.2,.8,.2,1),
+    box-shadow .22s ease;
+}
+
+.design-switcher--collapsed {
+  width: auto;
+  min-width: 148px;
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.design-switcher--expanded {
+  width: 315px;
+  min-width: 315px;
+}
+
+.design-switcher--collapsed .design-drag-handle {
+  grid-row: 1;
+}
+
+.design-collapsed-button {
+  min-height: 35px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: #555a64;
+  cursor: pointer;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.design-collapsed-button:hover {
+  background: rgba(17,19,24,.05);
+}
+
+.design-collapsed-button svg:last-child {
+  margin-left: auto;
+}
+
+@media (max-width: 640px) {
+  .design-switcher--collapsed {
+    min-width: 136px;
+    transform: scale(.96);
+  }
+
+  .design-switcher--expanded {
+    width: 290px;
+    min-width: 290px;
+  }
+}
+
+
+/* ================================================================
+   v6.2 — homepage can scroll independently
+   ================================================================ */
+
+.home-view {
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  display: block;
+}
+
+.home-layout {
+  min-height: 720px;
+  overflow: visible;
+}
+
+.home-marquee {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 900px) {
+  .home-layout {
+    min-height: auto;
+  }
+}

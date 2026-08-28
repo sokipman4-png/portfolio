@@ -3,7 +3,7 @@ set -euo pipefail
 cd "$(dirname "$0")"
 
 echo "=============================================="
-echo " SIHRIZAL Portfolio Tabs v6"
+echo " SIHRIZAL Portfolio Tabs v6.2"
 echo " Data: src/data/site-content.js"
 echo "=============================================="
 echo
