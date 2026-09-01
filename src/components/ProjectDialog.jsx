@@ -6,6 +6,7 @@ import {
 } from "@/components/ui/dialog"
 import { Badge } from "@/components/ui/badge"
 import {
+  formatProjectNumber,
   getProjectAccesses,
   getProjectLicense,
   getProjectPrice,
@@ -43,8 +44,19 @@ export function ProjectDialog({
         </div>
 
         <div className="project-detail-metrics">
-          <Metric label={labels.users} value={users ?? labels.notSet} />
-          <Metric label={labels.accesses} value={accesses} />
+          <Metric
+            label={labels.users}
+            value={
+              users === null || users === undefined
+                ? labels.notSet
+                : formatProjectNumber(users, language)
+            }
+          />
+
+          <Metric
+            label={labels.accesses}
+            value={formatProjectNumber(accesses, language)}
+          />
           <Metric label={labels.price} value={price} />
           <Metric label={labels.license} value={license} />
         </div>

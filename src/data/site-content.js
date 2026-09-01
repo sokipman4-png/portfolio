@@ -491,18 +491,23 @@ export const projects = [
       ]
     },
     "business": {
-      "users": 132.874,
+      "users": 132874,
+
       "price": {
-        "id": "6.500.000",
-        "en": "6.500.000"
+        "id": "Rp6.500.000",
+        "en": "IDR 6,500,000"
       },
+
       "license": {
         "id": "Bulanan",
         "en": "Monthly"
       },
+
       "topRank": 1,
-      "accesses": 1.321,
-      "priceValue": null
+
+      "accesses": 1321,
+
+      "priceValue": 6500000
     }
   },
   {

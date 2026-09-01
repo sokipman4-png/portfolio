@@ -90,3 +90,27 @@ export function getCurrentInterested(item, liveMetric) {
   return Math.max(0, toNumber(item?.interestBase, 0)) +
     Math.max(0, toNumber(liveMetric?.interested, 0))
 }
+
+
+export function formatProjectNumber(value, language = "id") {
+  if (
+    value === null ||
+    value === undefined ||
+    value === ""
+  ) {
+    return null
+  }
+
+  const number = Number(value)
+
+  if (!Number.isFinite(number)) {
+    return value
+  }
+
+  return new Intl.NumberFormat(
+    language === "id" ? "id-ID" : "en-US",
+    {
+      maximumFractionDigits: 0
+    }
+  ).format(Math.round(number))
+}
