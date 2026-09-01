@@ -1869,45 +1869,88 @@ export const projects = [
 // Project yang sedang dibuat.
 export const currentProjects = [
   {
-    id: "contoh-project-aktif",
-    demo: true,
+    id: "voucher-activation-automation",
+    demo: false,
+
     name: {
-      id: "Contoh project yang sedang dikerjakan",
-      en: "Sample project in progress"
+      id: "Voucher Activation Automation",
+      en: "Voucher Activation Automation"
     },
+
     purpose: {
-      id: "Ganti dengan kegunaan utama program.",
-      en: "Replace this with the main purpose of the project."
+      id: "Menghubungkan dua sistem aplikasi berbeda agar proses aktivasi data voucher paket dapat berjalan otomatis tanpa perlu memindahkan data dan memproses respons secara manual.",
+      en: "Connecting two different application systems so voucher package activation can run automatically without manually transferring data or processing responses."
     },
+
     description: {
-      id: "Data contoh. Ganti nama, deskripsi, harga, waktu order, estimasi, permintaan, dan peminat.",
-      en: "Sample data. Replace the name, description, price, order time, estimate, requests, and interest."
+      id: "Sistem otomasi yang mengintegrasikan API dari dua aplikasi berbeda ke dalam satu alur kerja. Program membaca input dan respons dari masing-masing API, mengenali pola data menggunakan parsing dan regex, kemudian mengolah hasilnya menjadi perintah yang dapat diteruskan ke sistem berikutnya secara otomatis. Project ini dikembangkan untuk menyederhanakan proses aktivasi data voucher paket, mengurangi pekerjaan berulang, dan membuat alur antar-aplikasi berjalan lebih cepat serta terstruktur.",
+      en: "An automation system that integrates APIs from two different applications into a single workflow. The program reads inputs and responses from each API, identifies data patterns through parsing and regular expressions, then transforms the results into commands that can automatically continue to the next system. The project is being developed to simplify voucher package activation, reduce repetitive work, and create a faster and more structured application-to-application workflow."
     },
+
     price: {
-      id: "Isi harga",
-      en: "Set price"
+      id: "7.500.000",
+      en: "7.500.000"
     },
-    orderedAt: "2026-08-28T09:00:00+07:00",
+
+    // Ganti sesuai waktu project/order sebenarnya.
+    orderedAt: "2026-09-01T09:00:00+07:00",
+
+    // Ganti sesuai estimasi pengerjaan.
     estimatedDays: 14,
-    requests: 0,
-    interestBase: 0
+
+    requests: 1,
+    interestBase: 1
+  },
+
+  {
+    id: "automated-media-publishing",
+    demo: false,
+
+    name: {
+      id: "Automated Media Publishing System",
+      en: "Automated Media Publishing System"
+    },
+
+    purpose: {
+      id: "Mengotomatisasi proses pembuatan konten multimedia hingga publikasi ke YouTube, mulai dari pengolahan bahan video, foto, dan audio sampai penjadwalan upload ke akun yang dipilih.",
+      en: "Automating the multimedia content creation and YouTube publishing workflow, from processing video, image, and audio assets to scheduled uploads on selected accounts."
+    },
+
+    description: {
+      id: "Sistem otomasi produksi dan publikasi konten yang dapat menggabungkan video, foto, dan audio menjadi satu hasil akhir secara otomatis. Program dapat menambahkan judul atau teks, memilih variasi efek secara dinamis, menyusun media, dan menghasilkan video siap publikasi. Setelah proses rendering selesai, sistem dapat menjadwalkan serta mengunggah video ke akun YouTube yang telah ditentukan. Dukungan pengaturan akun dan konfigurasi jaringan juga disiapkan agar proses publikasi multi-akun dapat dikelola secara terpisah dan lebih terstruktur.",
+      en: "An automated content production and publishing system that combines video, images, and audio into a finished media output. The program can add titles or text, dynamically select visual effects, compose media assets, and generate videos ready for publishing. Once rendering is complete, the system can schedule and upload videos to selected YouTube accounts. Account and network configuration support is also included to keep multi-account publishing workflows separated and organized."
+    },
+
+    price: {
+      id: "20.000.000",
+      en: "20.000.000"
+    },
+
+    // Ganti sesuai waktu project/order sebenarnya.
+    orderedAt: "2026-09-01T09:00:00+07:00",
+
+    // Ganti sesuai estimasi pengerjaan.
+    estimatedDays: 21,
+
+    requests: 1,
+    interestBase: 1
   }
 ]
 
 export const activities = [
   {
-    id: "contoh-kegiatan",
+    id: "segera-hadir",
     demo: true,
-    date: "2026-08-20",
+    date: "2026-09-03",
     location: "Surabaya",
     image: "/images/activity-placeholder.webp",
     title: {
-      id: "Contoh: sharing session / seminar",
-      en: "Sample: sharing session / seminar"
+      id: "sharing session / seminar",
+      en: "sharing session / seminar"
     },
     description: {
-      id: "Ganti dengan cerita singkat kegiatan, lokasi, materi, peserta, dan hal menarik yang terjadi.",
-      en: "Replace with a short note about the event, location, material, audience, and highlights."
+      id: "cerita singkat kegiatan, lokasi, materi, peserta, dan hal menarik yang terjadi.",
+      en: "short note about the event, location, material, audience, and highlights."
     }
   }
 ]
