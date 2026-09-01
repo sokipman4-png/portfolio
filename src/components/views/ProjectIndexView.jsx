@@ -1,4 +1,10 @@
 import { ArrowUpRight, Eye, Search, Users } from "lucide-react"
+import {
+  getProjectAccesses,
+  getProjectLicense,
+  getProjectPrice,
+  getProjectUsers,
+} from "@/lib/projectBusiness"
 
 export function ProjectIndexView({
   projects,
@@ -58,9 +64,11 @@ export function ProjectIndexView({
       <div className="project-scroll-area">
         <div className="project-list">
           {projects.map((project) => {
-            const live = metrics[project.id] || {}
-            const users = live.users ?? project.business?.users
-            const accesses = live.accesses ?? project.business?.accesses ?? 0
+            const live = metrics[project.id]
+            const users = getProjectUsers(project, live)
+            const accesses = getProjectAccesses(project, live)
+            const price = getProjectPrice(project, language, "—")
+            const license = getProjectLicense(project, language, "—")
             const rank = ranking.get(project.id)
 
             return (
@@ -90,18 +98,8 @@ export function ProjectIndexView({
 
                 <Metric icon={<Users />} value={users ?? "—"} />
                 <Metric icon={<Eye />} value={accesses} />
-
-                <span className="row-price">
-                  {project.business?.price?.[language] ||
-                    project.business?.price?.id ||
-                    "—"}
-                </span>
-
-                <span className="row-license">
-                  {project.business?.license?.[language] ||
-                    project.business?.license?.id ||
-                    "—"}
-                </span>
+                <span className="row-price">{price}</span>
+                <span className="row-license">{license}</span>
 
                 <span className="row-open">
                   {labels.open}

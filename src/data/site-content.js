@@ -428,9 +428,34 @@ export const skills = [
 // ================================================================
 // DATA PROJECT MANUAL TERBARU.
 // Hanya edit di sini. Tidak ada teknologi/bahasa yang ditampilkan lagi.
-// `users` = pengguna aktif/saat ini.
-// `accesses` = fallback jumlah akses sebelum statistik live.
-// `priceValue` = angka harga untuk sorting, contoh 99000.
+// Cara mengisi `business`:
+//
+// users:
+//   Jumlah pengguna saat ini. Contoh: 125.
+//   Jika null => tampil "Belum diisi".
+//   Jika D1 punya users > 0, nilai live D1 dapat menggantikan angka manual.
+//
+// accesses:
+//   ANGKA AWAL / BASELINE akses. Contoh: 1800.
+//   Website akan menampilkan: accesses manual + akses baru dari D1.
+//   Jadi isi 1800 jika sebelum counter live project sudah pernah diakses 1800 kali.
+//
+// price:
+//   Teks yang tampil. Bisa object ID/EN seperti:
+//   price: { id: "Rp99.000 / bulan", en: "IDR 99,000 / month" }
+//   atau string sederhana: price: "Rp99.000 / bulan"
+//
+// priceValue:
+//   ANGKA MURNI untuk sorting harga. Contoh: 99000.
+//   Tidak ditampilkan ke visitor.
+//
+// license:
+//   Jenis akses yang tampil, mis. "Lisensi bulanan" / "Beli putus (full code)".
+//
+// topRank:
+//   Ranking manual cadangan. Angka 1 = prioritas tertinggi.
+//   Digunakan jika jumlah pengguna sama / belum ada.
+//   Badge Top 1/2/3 mengikuti ranking akhir website.
 // ================================================================
 export const projects = [
   {

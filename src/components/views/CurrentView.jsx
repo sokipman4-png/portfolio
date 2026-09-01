@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { Clock3, Heart } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { expectedFinish, formatDateTime, formatElapsed } from "@/lib/live"
+import { getCurrentInterested, getCurrentRequests } from "@/lib/projectBusiness"
 
 export function CurrentView({
   items,
@@ -51,8 +52,8 @@ function CurrentCard({
     return () => window.clearInterval(timer)
   }, [])
 
-  const requests = metric?.requests ?? item.requests ?? 0
-  const interested = metric?.interested ?? item.interestBase ?? 0
+  const requests = getCurrentRequests(item, metric)
+  const interested = getCurrentInterested(item, metric)
 
   const handleInterest = async () => {
     if (clicked) return

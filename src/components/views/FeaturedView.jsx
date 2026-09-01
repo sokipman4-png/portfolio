@@ -1,4 +1,9 @@
 import { ArrowUpRight, Eye, Users } from "lucide-react"
+import {
+  getProjectAccesses,
+  getProjectPrice,
+  getProjectUsers,
+} from "@/lib/projectBusiness"
 
 export function FeaturedView({
   projects,
@@ -10,9 +15,10 @@ export function FeaturedView({
     <section className="view-panel featured-view">
       <div className="featured-grid">
         {projects.map((project, index) => {
-          const live = metrics[project.id] || {}
-          const users = live.users ?? project.business?.users
-          const accesses = live.accesses ?? project.business?.accesses ?? 0
+          const live = metrics[project.id]
+          const users = getProjectUsers(project, live)
+          const accesses = getProjectAccesses(project, live)
+          const price = getProjectPrice(project, language, "—")
 
           return (
             <button
@@ -41,11 +47,7 @@ export function FeaturedView({
                   <Eye className="h-4 w-4" />
                   {accesses}
                 </span>
-                <span className="featured-price">
-                  {project.business?.price?.[language] ||
-                    project.business?.price?.id ||
-                    "—"}
-                </span>
+                <span className="featured-price">{price}</span>
               </div>
             </button>
           )

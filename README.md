@@ -1,4 +1,4 @@
-# SIHRIZAL Portfolio Tabs v6.3
+# SIHRIZAL Portfolio Tabs v6.4
 
 Portfolio React + Vite untuk `sihrizal.online`.
 
@@ -83,3 +83,7 @@ Test production:
 
 ## v6.3
 Baca `FIX_TRAFFIC_AND_INTEREST.md` dan jalankan `./diagnose-production.sh`.
+
+
+## v6.4
+Baca `FIX_BINDING_AND_BUSINESS_DATA.md` sebelum deploy.

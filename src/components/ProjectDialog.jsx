@@ -5,6 +5,12 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog"
 import { Badge } from "@/components/ui/badge"
+import {
+  getProjectAccesses,
+  getProjectLicense,
+  getProjectPrice,
+  getProjectUsers,
+} from "@/lib/projectBusiness"
 
 export function ProjectDialog({
   project,
@@ -16,9 +22,10 @@ export function ProjectDialog({
 }) {
   if (!project) return null
 
-  const business = project.business || {}
-  const users = liveMetric?.users ?? business.users
-  const accesses = liveMetric?.accesses ?? business.accesses ?? 0
+  const users = getProjectUsers(project, liveMetric)
+  const accesses = getProjectAccesses(project, liveMetric)
+  const price = getProjectPrice(project, language, labels.notSet)
+  const license = getProjectLicense(project, language, labels.notSet)
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -38,22 +45,8 @@ export function ProjectDialog({
         <div className="project-detail-metrics">
           <Metric label={labels.users} value={users ?? labels.notSet} />
           <Metric label={labels.accesses} value={accesses} />
-          <Metric
-            label={labels.price}
-            value={
-              business.price?.[language] ||
-              business.price?.id ||
-              labels.notSet
-            }
-          />
-          <Metric
-            label={labels.license}
-            value={
-              business.license?.[language] ||
-              business.license?.id ||
-              labels.notSet
-            }
-          />
+          <Metric label={labels.price} value={price} />
+          <Metric label={labels.license} value={license} />
         </div>
 
         {project.platforms?.length > 0 && (

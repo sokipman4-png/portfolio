@@ -25,6 +25,12 @@ import { AboutView } from "@/components/views/AboutView"
 import { ContactView } from "@/components/views/ContactView"
 import { useProjectMetrics } from "@/hooks/useProjectMetrics"
 import { useTrafficAnalytics } from "@/hooks/useTrafficAnalytics"
+import {
+  getProjectAccesses,
+  getProjectPriceValue,
+  getProjectTopRank,
+  getProjectUsers,
+} from "@/lib/projectBusiness"
 
 const HASH_TO_TAB = {
   "": "home",
@@ -125,35 +131,26 @@ export default function App() {
 
   const ranking = useMemo(() => {
     const ranked = [...visibleProjects].sort((a, b) => {
-      const usersA =
-        metrics[a.id]?.users ?? a.business?.users ?? -1
-      const usersB =
-        metrics[b.id]?.users ?? b.business?.users ?? -1
+      const usersA = getProjectUsers(a, metrics[a.id])
+      const usersB = getProjectUsers(b, metrics[b.id])
 
-      if (usersA !== usersB) return usersB - usersA
+      const scoreA = usersA === null || usersA === undefined ? -1 : Number(usersA)
+      const scoreB = usersB === null || usersB === undefined ? -1 : Number(usersB)
 
-      const rankA = a.business?.topRank ?? 9999
-      const rankB = b.business?.topRank ?? 9999
+      if (scoreA !== scoreB) return scoreB - scoreA
 
+      const rankA = getProjectTopRank(a)
+      const rankB = getProjectTopRank(b)
       if (rankA !== rankB) return rankA - rankB
 
-      const accessA =
-        metrics[a.id]?.accesses ??
-        a.business?.accesses ??
-        0
-      const accessB =
-        metrics[b.id]?.accesses ??
-        b.business?.accesses ??
-        0
-
-      return accessB - accessA
+      return (
+        getProjectAccesses(b, metrics[b.id]) -
+        getProjectAccesses(a, metrics[a.id])
+      )
     })
 
     return new Map(
-      ranked.map((project, index) => [
-        project.id,
-        index + 1,
-      ])
+      ranked.map((project, index) => [project.id, index + 1])
     )
   }, [visibleProjects, metrics])
 
@@ -172,35 +169,16 @@ export default function App() {
       )
     })
 
-    const usersOf = (project) =>
-      metrics[project.id]?.users ??
-      project.business?.users ??
-      -1
+    const usersOf = (project) => {
+      const value = getProjectUsers(project, metrics[project.id])
+      return value === null || value === undefined ? -1 : Number(value)
+    }
 
     const accessesOf = (project) =>
-      metrics[project.id]?.accesses ??
-      project.business?.accesses ??
-      0
+      getProjectAccesses(project, metrics[project.id])
 
-    const priceOf = (project) => {
-      if (
-        Number.isFinite(
-          Number(project.business?.priceValue)
-        )
-      ) {
-        return Number(project.business.priceValue)
-      }
-
-      const text =
-        project.business?.price?.id ||
-        project.business?.price?.en ||
-        ""
-
-      const digits = String(text).replace(/[^\d]/g, "")
-      return digits
-        ? Number(digits)
-        : Number.POSITIVE_INFINITY
-    }
+    const priceOf = (project) =>
+      getProjectPriceValue(project)
 
     return [...filtered].sort((a, b) => {
       if (sort === "users-desc") {
