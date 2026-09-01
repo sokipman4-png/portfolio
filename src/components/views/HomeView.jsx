@@ -21,7 +21,7 @@ export function HomeView({ site, t, onNavigate }) {
             <p className="home-description">{t.hero.body}</p>
 
             <div className="home-actions">
-              <Button variant="accent" onClick={() => onNavigate("work")}>
+              <Button variant="accent" onClick={() => onNavigate("index")}>
                 {t.hero.cta}
                 <ArrowRight className="h-4 w-4" />
               </Button>

@@ -57,7 +57,8 @@ function CurrentCard({
   const handleInterest = async () => {
     if (clicked) return
     const result = await registerInterest(item.id)
-    if (result) localStorage.setItem(`portfolio-interest:${item.id}`, "1")
+    if (!result) return
+    localStorage.setItem(`portfolio-interest:${item.id}`, "1")
     setClicked(true)
   }
 

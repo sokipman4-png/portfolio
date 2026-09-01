@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react"
+import { getAnonymousVisitorId } from "@/lib/visitor"
 
 const EMPTY = {
   configured: false,
@@ -8,20 +9,6 @@ const EMPTY = {
   month: 0,
   year: 0,
   series: [],
-}
-
-function getVisitorId() {
-  const key = "portfolio-anonymous-visitor"
-  let value = localStorage.getItem(key)
-
-  if (!value) {
-    value = crypto.randomUUID
-      ? crypto.randomUUID()
-      : `${Date.now()}-${Math.random().toString(36).slice(2)}`
-    localStorage.setItem(key, value)
-  }
-
-  return value
 }
 
 export function useTrafficAnalytics(config = {}) {
@@ -69,7 +56,7 @@ export function useTrafficAnalytics(config = {}) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          visitorId: getVisitorId(),
+          visitorId: getAnonymousVisitorId(),
           event,
         }),
       })

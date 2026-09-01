@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react"
+import { getAnonymousVisitorId } from "@/lib/visitor"
 
 export function useProjectMetrics(projectIds = []) {
   const ids = useMemo(
@@ -9,21 +10,16 @@ export function useProjectMetrics(projectIds = []) {
 
   const refresh = useCallback(async () => {
     if (!ids.length) return
-
     try {
       const response = await fetch(
         `/api/stats?projects=${encodeURIComponent(ids.join(","))}`,
-        { headers: { Accept: "application/json" } }
+        { headers: { Accept: "application/json" }, cache: "no-store" }
       )
-      if (!response.ok) return
-
       const data = await response.json()
-      if (data?.metrics) {
+      if (response.ok && data?.metrics) {
         setMetrics((old) => ({ ...old, ...data.metrics }))
       }
-    } catch {
-      // Local Vite preview: Pages Function tidak tersedia.
-    }
+    } catch {}
   }, [ids.join("|")])
 
   useEffect(() => {
@@ -37,18 +33,19 @@ export function useProjectMetrics(projectIds = []) {
       const response = await fetch("/api/stats", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ action: "interest", project }),
+        body: JSON.stringify({
+          action: "interest",
+          project,
+          visitorId: getAnonymousVisitorId(),
+        }),
       })
-      if (!response.ok) return null
       const data = await response.json()
-      if (data?.metric) {
-        setMetrics((old) => ({ ...old, [project]: data.metric }))
-        return data.metric
-      }
+      if (!response.ok || !data?.metric) return null
+      setMetrics((old) => ({ ...old, [project]: data.metric }))
+      return data.metric
     } catch {
       return null
     }
-    return null
   }, [])
 
   const registerAccess = useCallback(async (project) => {
@@ -57,36 +54,21 @@ export function useProjectMetrics(projectIds = []) {
       return metrics[project] || null
     }
 
-    sessionStorage.setItem(sessionKey, "1")
-
-    // Local feedback first.
-    setMetrics((old) => ({
-      ...old,
-      [project]: {
-        ...(old[project] || {}),
-        accesses: Number(old[project]?.accesses || 0) + 1,
-      },
-    }))
-
     try {
       const response = await fetch("/api/stats", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ action: "access", project }),
       })
-
-      if (!response.ok) return null
       const data = await response.json()
+      if (!response.ok || !data?.metric) return null
 
-      if (data?.metric) {
-        setMetrics((old) => ({ ...old, [project]: data.metric }))
-        return data.metric
-      }
+      sessionStorage.setItem(sessionKey, "1")
+      setMetrics((old) => ({ ...old, [project]: data.metric }))
+      return data.metric
     } catch {
       return null
     }
-
-    return null
   }, [metrics])
 
   return { metrics, refresh, registerInterest, registerAccess }

@@ -3,19 +3,9 @@
   "name": "portfolio",
   "main": "worker/index.js",
   "compatibility_date": "2026-08-28",
-
   "observability": {
     "enabled": true
   },
-
-  "d1_databases": [
-    {
-      "binding": "PORTFOLIO_DB",
-      "database_name": "portfolio-analytics",
-      "database_id": "81887f35-a450-4db2-965b-ae508a212650"
-    }
-  ],
-
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",
