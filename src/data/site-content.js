@@ -491,17 +491,17 @@ export const projects = [
       ]
     },
     "business": {
-      "users": null,
+      "users": 132.874,
       "price": {
-        "id": "Belum diisi",
-        "en": "Not set"
+        "id": "6.500.000",
+        "en": "6.500.000"
       },
       "license": {
-        "id": "Belum diisi",
-        "en": "Not set"
+        "id": "Bulanan",
+        "en": "Monthly"
       },
       "topRank": 1,
-      "accesses": 0,
+      "accesses": 1.321,
       "priceValue": null
     }
   },
