@@ -71,6 +71,7 @@ export const copy = {
       work: "Project pilihan",
       index: "Semua project",
       current: "Sedang dikerjakan",
+      articles: "Artikel",
       activities: "Kegiatan",
       videos: "Video",
       about: "Tentang",
@@ -83,7 +84,8 @@ export const copy = {
       line3: "dan perangkat.",
       body: "Portfolio berisi project software, eksperimen AI, sistem realtime, aplikasi, hardware, kegiatan, dan tutorial yang saya kerjakan.",
       cta: "Lihat project",
-      currentCta: "Lihat yang sedang dikerjakan"
+      currentCta: "Lihat yang sedang dikerjakan",
+      articleCta: "Lihat artikel yang saya buat"
     },
     bio: {
       kicker: "Perkenalan",
@@ -147,6 +149,16 @@ export const copy = {
       highlights: "Fitur utama",
       noDescription: "Deskripsi project belum diisi.",
       notSet: "Belum diisi"
+    },
+    articles: {
+      kicker: "Tulisan & catatan",
+      title: "Artikel yang saya tulis.",
+      body: "Catatan teknis, pengalaman membangun project, eksperimen, dan hal-hal yang saya pelajari selama mengembangkan sistem.",
+      article: "Artikel",
+      read: "Baca artikel",
+      minutes: "menit baca",
+      emptyTitle: "Belum ada artikel yang dipublikasikan.",
+      emptyBody: "Tambahkan artikel melalui array articles di src/data/site-content.js."
     },
     activities: {
       kicker: "Perjalanan & kegiatan",
@@ -219,6 +231,7 @@ export const copy = {
       work: "Selected work",
       index: "All projects",
       current: "In progress",
+      articles: "Articles",
       activities: "Activities",
       videos: "Videos",
       about: "About",
@@ -231,7 +244,8 @@ export const copy = {
       line3: "and devices.",
       body: "A portfolio of software projects, AI experiments, realtime systems, applications, hardware, activities, and tutorials.",
       cta: "View projects",
-      currentCta: "See work in progress"
+      currentCta: "See work in progress",
+      articleCta: "Read my articles"
     },
     bio: {
       kicker: "Introduction",
@@ -295,6 +309,16 @@ export const copy = {
       highlights: "Highlights",
       noDescription: "Project description has not been added.",
       notSet: "Not set"
+    },
+    articles: {
+      kicker: "Writing & notes",
+      title: "Articles I've written.",
+      body: "Technical notes, project-building experiences, experiments, and things I learn while developing systems.",
+      article: "Article",
+      read: "Read article",
+      minutes: "min read",
+      emptyTitle: "No published articles yet.",
+      emptyBody: "Add articles through the articles array in src/data/site-content.js."
     },
     activities: {
       kicker: "Journey & activities",
@@ -491,23 +515,18 @@ export const projects = [
       ]
     },
     "business": {
-      "users": 132874,
-
+      "users": null,
       "price": {
-        "id": "Rp6.500.000",
-        "en": "IDR 6,500,000"
+        "id": "Belum diisi",
+        "en": "Not set"
       },
-
       "license": {
-        "id": "Bulanan",
-        "en": "Monthly"
+        "id": "Belum diisi",
+        "en": "Not set"
       },
-
       "topRank": 1,
-
-      "accesses": 1321,
-
-      "priceValue": 6500000
+      "accesses": 0,
+      "priceValue": null
     }
   },
   {
@@ -1872,90 +1891,98 @@ export const projects = [
 ]
 
 // Project yang sedang dibuat.
+
+// ================================================================
+// ARTIKEL
+//
+// Tambahkan artikel baru dengan menyalin satu object di bawah.
+// `content.id` dan `content.en` berupa array paragraf.
+// `image` opsional. Jika tidak ada gambar, gunakan null.
+// ================================================================
+
+export const articles = [
+  {
+    id: "contoh-artikel",
+    visible: true,
+
+    title: {
+      id: "Contoh artikel — ganti dengan artikel Anda",
+      en: "Sample article — replace with your own"
+    },
+
+    category: {
+      id: "Catatan teknis",
+      en: "Technical notes"
+    },
+
+    excerpt: {
+      id: "Ringkasan singkat artikel ditampilkan di kartu agar pembaca dapat memahami isi tulisan sebelum membukanya.",
+      en: "A short article summary appears on the card so readers can understand the topic before opening it."
+    },
+
+    publishedAt: "2026-09-03",
+    readMinutes: 5,
+
+    // Contoh: "/images/artikel/nama-file.webp"
+    image: null,
+
+    content: {
+      id: [
+        "Tulis paragraf pertama artikel Anda di sini. Anda dapat menambahkan paragraf sebanyak yang dibutuhkan dengan menambahkan string baru ke dalam array content.id.",
+        "Paragraf berikutnya dapat berisi penjelasan proses, pengalaman, keputusan teknis, hasil eksperimen, atau hal menarik yang ingin Anda bagikan kepada pembaca.",
+        "Untuk membuat artikel baru, duplikasi object artikel ini lalu ganti id, judul, kategori, ringkasan, tanggal, durasi baca, gambar, dan isi artikelnya."
+      ],
+
+      en: [
+        "Write the first paragraph of your article here. You can add as many paragraphs as needed by adding new strings to the content.en array.",
+        "The following paragraphs can describe your process, experience, technical decisions, experiment results, or anything useful you want to share with readers.",
+        "To create another article, duplicate this article object and replace its id, title, category, excerpt, date, reading time, image, and content."
+      ]
+    }
+  }
+]
+
 export const currentProjects = [
   {
-    id: "voucher-activation-automation",
-    demo: false,
-
+    id: "contoh-project-aktif",
+    demo: true,
     name: {
-      id: "Voucher Activation Automation",
-      en: "Voucher Activation Automation"
+      id: "Contoh project yang sedang dikerjakan",
+      en: "Sample project in progress"
     },
-
     purpose: {
-      id: "Menghubungkan dua sistem aplikasi berbeda agar proses aktivasi data voucher paket dapat berjalan otomatis tanpa perlu memindahkan data dan memproses respons secara manual.",
-      en: "Connecting two different application systems so voucher package activation can run automatically without manually transferring data or processing responses."
+      id: "Ganti dengan kegunaan utama program.",
+      en: "Replace this with the main purpose of the project."
     },
-
     description: {
-      id: "Sistem otomasi yang mengintegrasikan API dari dua aplikasi berbeda ke dalam satu alur kerja. Program membaca input dan respons dari masing-masing API, mengenali pola data menggunakan parsing dan regex, kemudian mengolah hasilnya menjadi perintah yang dapat diteruskan ke sistem berikutnya secara otomatis. Project ini dikembangkan untuk menyederhanakan proses aktivasi data voucher paket, mengurangi pekerjaan berulang, dan membuat alur antar-aplikasi berjalan lebih cepat serta terstruktur.",
-      en: "An automation system that integrates APIs from two different applications into a single workflow. The program reads inputs and responses from each API, identifies data patterns through parsing and regular expressions, then transforms the results into commands that can automatically continue to the next system. The project is being developed to simplify voucher package activation, reduce repetitive work, and create a faster and more structured application-to-application workflow."
+      id: "Data contoh. Ganti nama, deskripsi, harga, waktu order, estimasi, permintaan, dan peminat.",
+      en: "Sample data. Replace the name, description, price, order time, estimate, requests, and interest."
     },
-
     price: {
-      id: "7.500.000",
-      en: "7.500.000"
+      id: "Isi harga",
+      en: "Set price"
     },
-
-    // Ganti sesuai waktu project/order sebenarnya.
-    orderedAt: "2026-09-01T09:00:00+07:00",
-
-    // Ganti sesuai estimasi pengerjaan.
+    orderedAt: "2026-08-28T09:00:00+07:00",
     estimatedDays: 14,
-
-    requests: 1,
-    interestBase: 1
-  },
-
-  {
-    id: "automated-media-publishing",
-    demo: false,
-
-    name: {
-      id: "Automated Media Publishing System",
-      en: "Automated Media Publishing System"
-    },
-
-    purpose: {
-      id: "Mengotomatisasi proses pembuatan konten multimedia hingga publikasi ke YouTube, mulai dari pengolahan bahan video, foto, dan audio sampai penjadwalan upload ke akun yang dipilih.",
-      en: "Automating the multimedia content creation and YouTube publishing workflow, from processing video, image, and audio assets to scheduled uploads on selected accounts."
-    },
-
-    description: {
-      id: "Sistem otomasi produksi dan publikasi konten yang dapat menggabungkan video, foto, dan audio menjadi satu hasil akhir secara otomatis. Program dapat menambahkan judul atau teks, memilih variasi efek secara dinamis, menyusun media, dan menghasilkan video siap publikasi. Setelah proses rendering selesai, sistem dapat menjadwalkan serta mengunggah video ke akun YouTube yang telah ditentukan. Dukungan pengaturan akun dan konfigurasi jaringan juga disiapkan agar proses publikasi multi-akun dapat dikelola secara terpisah dan lebih terstruktur.",
-      en: "An automated content production and publishing system that combines video, images, and audio into a finished media output. The program can add titles or text, dynamically select visual effects, compose media assets, and generate videos ready for publishing. Once rendering is complete, the system can schedule and upload videos to selected YouTube accounts. Account and network configuration support is also included to keep multi-account publishing workflows separated and organized."
-    },
-
-    price: {
-      id: "20.000.000",
-      en: "20.000.000"
-    },
-
-    // Ganti sesuai waktu project/order sebenarnya.
-    orderedAt: "2026-09-01T09:00:00+07:00",
-
-    // Ganti sesuai estimasi pengerjaan.
-    estimatedDays: 21,
-
-    requests: 1,
-    interestBase: 1
+    requests: 0,
+    interestBase: 0
   }
 ]
 
 export const activities = [
   {
-    id: "segera-hadir",
+    id: "contoh-kegiatan",
     demo: true,
-    date: "2026-09-03",
+    date: "2026-08-20",
     location: "Surabaya",
     image: "/images/activity-placeholder.webp",
     title: {
-      id: "sharing session / seminar",
-      en: "sharing session / seminar"
+      id: "Contoh: sharing session / seminar",
+      en: "Sample: sharing session / seminar"
     },
     description: {
-      id: "cerita singkat kegiatan, lokasi, materi, peserta, dan hal menarik yang terjadi.",
-      en: "short note about the event, location, material, audience, and highlights."
+      id: "Ganti dengan cerita singkat kegiatan, lokasi, materi, peserta, dan hal menarik yang terjadi.",
+      en: "Replace with a short note about the event, location, material, audience, and highlights."
     }
   }
 ]

@@ -28,6 +28,10 @@ export function HomeView({ site, t, onNavigate }) {
               <Button variant="outline" onClick={() => onNavigate("current")}>
                 {t.hero.currentCta}
               </Button>
+
+              <Button variant="outline" onClick={() => onNavigate("articles")}>
+                {t.hero.articleCta}
+              </Button>
             </div>
           </div>
 

@@ -5,6 +5,7 @@ export const TAB_ORDER = [
   "work",
   "index",
   "current",
+  "articles",
   "activities",
   "videos",
   "about",

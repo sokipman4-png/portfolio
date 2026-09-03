@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react"
 import {
   activities,
+  articles,
   copy,
   currentProjects,
   projects,
@@ -11,6 +12,7 @@ import {
 import { LanguageGate } from "@/components/LanguageGate"
 import { DesignSwitcher } from "@/components/DesignSwitcher"
 import { ProjectDialog } from "@/components/ProjectDialog"
+import { ArticleDialog } from "@/components/ArticleDialog"
 import {
   TAB_ORDER,
   TabNavigation,
@@ -19,6 +21,7 @@ import { HomeView } from "@/components/views/HomeView"
 import { FeaturedView } from "@/components/views/FeaturedView"
 import { ProjectIndexView } from "@/components/views/ProjectIndexView"
 import { CurrentView } from "@/components/views/CurrentView"
+import { ArticlesView } from "@/components/views/ArticlesView"
 import { ActivitiesView } from "@/components/views/ActivitiesView"
 import { VideosView } from "@/components/views/VideosView"
 import { AboutView } from "@/components/views/AboutView"
@@ -38,6 +41,7 @@ const HASH_TO_TAB = {
   work: "work",
   index: "index",
   current: "current",
+  articles: "articles",
   activities: "activities",
   videos: "videos",
   about: "about",
@@ -78,6 +82,7 @@ export default function App() {
 
   const [activeTab, setActiveTab] = useState(tabFromHash)
   const [selectedProject, setSelectedProject] = useState(null)
+  const [selectedArticle, setSelectedArticle] = useState(null)
   const [query, setQuery] = useState("")
   const [sort, setSort] = useState("users-desc")
 
@@ -331,6 +336,15 @@ export default function App() {
         registerInterest={registerInterest}
       />
     )
+  } else if (activeTab === "articles") {
+    view = (
+      <ArticlesView
+        items={articles}
+        language={language}
+        labels={t.articles}
+        onOpenArticle={setSelectedArticle}
+      />
+    )
   } else if (activeTab === "activities") {
     view = (
       <ActivitiesView
@@ -407,6 +421,16 @@ export default function App() {
         onThemeChange={changeTheme}
         effect={effect}
         onEffectChange={changeEffect}
+      />
+
+      <ArticleDialog
+        article={selectedArticle}
+        open={Boolean(selectedArticle)}
+        onOpenChange={(open) =>
+          !open && setSelectedArticle(null)
+        }
+        language={language}
+        labels={t.articles}
       />
 
       <ProjectDialog
